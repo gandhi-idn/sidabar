@@ -26,25 +26,25 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Data Barang</h1>
                                     </div>
-                                    <form class="user" methot="POST" action="#">
+                                    <form class="user" method="POST" action="<?= base_url('index.php/input/input_barang'); ?>">
                                         <div class="form-group">
-                                            <input type="text" class="form-control form-control-user" id="" placeholder="no inv" name="no_inv" value="<?= set_value('fullname') ?>">
+                                            <input type="text" class="form-control form-control-user" id="" placeholder="no inv" name="no_inv" required>
                                             <?= form_error('no inv', '<small class="tex-danger pl-3">', '</small>') ?>
                                         </div>
                                         <div class="form-group">
-                                            <input type="text" class="form-control form-control-user" id="" placeholder="nama barang" name="nama_barang" value="<?= set_value('fullname') ?>">
+                                            <input type="text" class="form-control form-control-user" id="" placeholder="nama barang" name="nama_barang" required>
                                             <?= form_error('nama barang', '<small class="tex-danger pl-3">', '</small>') ?>
                                         </div>
                                         <div class="form-group">
-                                            <input type="text" class="form-control form-control-user" id="" placeholder="merk barang" name="merk_barang" value="<?= set_value('fullname') ?>">
+                                            <input type="text" class="form-control form-control-user" id="" placeholder="merk barang" name="merk_barang" required>
                                             <?= form_error('merk barang', '<small class="tex-danger pl-3">', '</small>') ?>
                                         </div>
                                         <div class="form-group">
-                                            <input type="text" class="form-control form-control-user" id="" placeholder="harga" name="harga" value="<?= set_value('fullname') ?>">
+                                            <input type="text" class="form-control form-control-user" id="" placeholder="harga" name="harga" required>
                                             <?= form_error('harga', '<small class="tex-danger pl-3">', '</small>') ?>
                                         </div>
                                         <div class="form-group">
-                                            <input type="text" class="form-control form-control-user" id="" placeholder="spec" name="spec" value="<?= set_value('fullname') ?>">
+                                            <input type="text" class="form-control form-control-user" id="" placeholder="spec" name="spec" required>
                                             <?= form_error('spec', '<small class="tex-danger pl-3">', '</small>') ?>
                                         </div>
                                         <button type="submit" class="btn btn-primary btn-user btn-block">
@@ -79,15 +79,22 @@
                                                 <th scope="col">merk barang</th>
                                                 <th scope="col">harga</th>
                                                 <th scope="col">spec</th>
+                                                <th scope="col">Tindakan</th>
                                             </tr>
-                                            <tr>
-                                                <th scope="row">1</th>
-                                                <td>123</td>
-                                                <td>ssd</td>
-                                                <td>abc</td>
-                                                <td>500.000</td>
-                                                <td>4</td>
-                                            </tr>
+                                            <?php foreach ($table->result_array() as $row) : ?>
+                                                <tr>
+                                                    <td><?= $row['id_barang'] ?></td>
+                                                    <td><?= $row['no_inv'] ?></td>
+                                                    <td><?= $row['nama_barang'] ?></td>
+                                                    <td><?= $row['merk_barang'] ?></td>
+                                                    <td><?= $row['harga'] ?></td>
+                                                    <td><?= $row['spec'] ?></td>
+                                                    <td>
+                                                        <button type="button" class="btn button-default"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>Edit</button>
+                                                        <button type="button" class="btn button-danger"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>Hapus</button>
+                                                    </td>
+                                                </tr>
+                                            <?php endforeach; ?>
                                         </thead>
                                     </table>
                                 </div>
