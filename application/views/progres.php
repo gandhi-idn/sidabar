@@ -24,7 +24,7 @@
                             <div class="col-lg">
                                 <div class="p-5">
                                     <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4">Progres</h1>
+                                        <h1 class="h4 text-gray-900 mb-4">program</h1>
                                     </div>
                                     <form class="user" methot="POST" action="#">
                                         <div class="form-group">
