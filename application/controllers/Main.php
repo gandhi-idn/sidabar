@@ -40,8 +40,8 @@ class Main extends CI_Controller
           if ($this->session->userdata('username') != '') {
                //echo '<h2>Welcome - '.$this->session->userdata('username').'</h2>';                  
                //echo '<label><a href="'.base_url().'index.php/main/logout">Logout</a></label>';
-
-               $this->load->view('dashboard');
+               $query['table'] = $this->db->get('barang');
+               $this->load->view('dashboard', $query);
           } else {
                redirect(base_url() . 'index.php/main/login');
           }

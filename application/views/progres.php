@@ -1,7 +1,7 @@
 <div class="container">
 
     <head>
-        <title>Webslesson | <?php echo $title; ?></title>
+        <title>LOG-IT</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
     </head>
     <ul class="nav nav-pills">
@@ -25,7 +25,7 @@
                                 <div class="p-5">
                                     <div class="text-center">
                                         <h1 class="h3 text-gray">program</h1>
-                                    </div> 
+                                    </div>
                                     <hr>
                                     <form class="user" methot="POST" action="#">
                                         <div class="form-group">
@@ -75,9 +75,6 @@
                         <div class="row">
                             <div class="col-lg">
                                 <div class="p-5">
-                                    <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4">Progres</h1>
-                                    </div>
                                     <table class="table table-bordered table-dark">
                                         <thead>
                                             <tr>
