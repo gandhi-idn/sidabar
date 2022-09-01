@@ -7,6 +7,7 @@
     <ul class="nav nav-pills">
         <li role="presentation" class="enabled"><a href="#">Dashboard</a></li>
         <li role="presentation" class="enabled"><a href="<?= base_url('index.php/main/progres'); ?>">Progres</a></li>
+        <li role="presentation" class="enabled"><a href="<?= base_url('index.php/main/login'); ?>">logout</a></li>
     </ul>
     <div class="text-center">
         <div>
