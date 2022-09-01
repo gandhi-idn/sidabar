@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 31 Agu 2022 pada 09.34
+-- Waktu pembuatan: 01 Sep 2022 pada 09.35
 -- Versi server: 10.4.24-MariaDB
--- Versi PHP: 7.4.29
+-- Versi PHP: 7.4.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -35,6 +35,14 @@ CREATE TABLE `barang` (
   `harga` varchar(20) NOT NULL,
   `spec` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `barang`
+--
+
+INSERT INTO `barang` (`id_barang`, `no_inv`, `nama_barang`, `merk_barang`, `harga`, `spec`) VALUES
+(2, 'inv08883', 'PC asus H81', 'asus', '1000000', 'H81'),
+(3, 'inv12361', 'motherboard', 'assrock', '600000', 'assrock H61');
 
 -- --------------------------------------------------------
 
@@ -137,7 +145,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT untuk tabel `barang`
 --
 ALTER TABLE `barang`
-  MODIFY `id_barang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_barang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `bo`
