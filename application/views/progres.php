@@ -6,7 +6,7 @@
     </head>
     <ul class="nav nav-pills">
         <li role="presentation" class="enabled"><a href="<?= base_url('index.php/main/dashboard'); ?>">Dashboard</a></li>
-        <li role="presentation" class="enabled"><a href="#">Progres</a></li>
+        <li role="presentation" class="enabled"><a href="<?= base_url('index.php/main/login'); ?>">logout</a></li>
     </ul>
     <div class="text-center">
         <div>
@@ -24,26 +24,30 @@
                             <div class="col-lg">
                                 <div class="p-5">
                                     <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4">program</h1>
-                                    </div>
+                                        <h1 class="h3 text-gray">program</h1>
+                                    </div> 
+                                    <hr>
                                     <form class="user" methot="POST" action="#">
                                         <div class="form-group">
-                                            <input type="text" class="form-control form-control-user" id="" placeholder="id barang" name="id barang" value="<?= set_value('fullname') ?>">
+                                            <input type="text" class="form-control form-control-user" id="" placeholder="id barang" name="id_barang" value="<?= set_value('fullname') ?>">
                                             <?= form_error('id barang', '<small class="tex-danger pl-3">', '</small>') ?>
                                         </div>
                                         <div class="form-group">
-                                            <input type="text" class="form-control form-control-user" id="" placeholder="id bo" name="id bo" value="<?= set_value('fullname') ?>">
+                                            <input type="text" class="form-control form-control-user" id="" placeholder="id bo" name="id_bo" value="<?= set_value('fullname') ?>">
                                             <?= form_error('id bo', '<small class="tex-danger pl-3">', '</small>') ?>
                                         </div>
                                         <div class="form-group">
-                                            <input type="date" class="form-control form-control-user" id="" placeholder="tgl masuk barang" name="tgl masuk barang" value="<?= set_value('fullname') ?>">
+                                            <div class="h4 text-gray-900 mb-4">Tgl Barang Masuk</div>
+                                            <input type="date" class="form-control form-control-user" id="" placeholder="tgl barang masuk" name="tgl_masuk_barang" value="<?= set_value('fullname') ?>">
                                             <?= form_error('tgl masuk barang', '<small class="tex-danger pl-3">', '</small>') ?>
                                         </div>
                                         <div class="form-group">
-                                            <input type="date" class="form-control form-control-user" id="" placeholder="tgl servis" name="tgl servis" value="<?= set_value('fullname') ?>">
+                                            <div class="h4 text-gray-900 mb-4">Tgl Servis</div>
+                                            <input type="date" class="form-control form-control-user" id="" placeholder="tgl servis" name="tgl_servis" value="<?= set_value('fullname') ?>">
                                             <?= form_error('tgl servis', '<small class="tex-danger pl-3">', '</small>') ?>
                                         </div>
                                         <div class="form-group">
+                                            <div class="h4 text-gray-900 mb-4">Tgl Selesai</div>
                                             <input type="date" class="form-control form-control-user" id="" placeholder="tgl selesai" name="tgl_selesai" value="<?= set_value('fullname') ?>">
                                             <?= form_error('tgl selesai', '<small class="tex-danger pl-3">', '</small>') ?>
                                         </div>
