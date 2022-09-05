@@ -30,14 +30,14 @@
 <body>
     <div class="container">
         <div class="row">
-            <div class="text-center">
-                <h1 class="h4 text-gray-900 mb-4">Data Barang</h1>
-            </div>
             <div class="col">
+                <div class="text-center">
+                    <h1 class="h4 text-gray-900 mb-4">Data Barang</h1>
+                </div>
                 <table class="table table-bordered">
                     <thead>
                         <tr>
-                            <th scope="col">#</th>
+                            <th scope="col">id barang</th>
                             <th scope="col">no inv</th>
                             <th scope="col">nama barang</th>
                             <th scope="col">merk barang</th>

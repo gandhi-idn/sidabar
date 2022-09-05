@@ -51,8 +51,9 @@ class Main extends CI_Controller
      {
 
           if ($this->session->userdata('username') != '') {
-
-               $this->load->view('progres');
+               $query['barang'] = $this->db->get('barang');
+               $query['bo'] = $this->db->get('bo');
+               $this->load->view('progres', $query);
           }
      }
 
