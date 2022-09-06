@@ -51,8 +51,19 @@ class Main extends CI_Controller
      {
 
           if ($this->session->userdata('username') != '') {
+
+
+               $this->db->select('progres.id_prog, progres.keterangan_log, progres.keterangan_bo, barang.merk_barang, barang.nama_barang, bo.nama_bo, detail_status.status');
+               $this->db->from('progres');
+               $this->db->join('barang', 'progres.id_barang = barang.id_barang', 'inner');
+               $this->db->join('bo', 'progres.id_bo = bo.id_bo', 'inner');
+               $this->db->join('detail_status', 'progres.id_status = detail_status.id_status', 'left');
+               $query['prog'] = $this->db->get();
+
                $query['barang'] = $this->db->get('barang');
                $query['bo'] = $this->db->get('bo');
+               $query['status'] = $this->db->get('detail_status');
+
                $this->load->view('progres', $query);
           }
      }

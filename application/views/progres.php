@@ -34,18 +34,18 @@
                 <h1 class="h4 text-gray-900 mb-4">Progres Barang</h1>
             </div>
             <hr>
-            <form>
+            <form method="post" action="<?= base_url('index.php/input/input_progres'); ?>">
                 <div class="row">
                     <div class="col-md-4">
-                        <label for="sel1">Pilih Barang</label>
-                        <select class="form-control" required>
+                        <label>Pilih Barang</label>
+                        <select name="id_barang" class="form-control" required>
                             <option></option>
                             <?php foreach ($barang->result_array() as $row) : ?>
                                 <option value="<?= $row['id_barang'] ?>"><?= $row['nama_barang'] ?></option>
                             <?php endforeach; ?>
                         </select>
-                        <label for="sel1">Asal Barang</label>
-                        <select class="form-control" required>
+                        <label>Asal Barang</label>
+                        <select name="id_bo" class="form-control" required>
                             <option></option>
                             <?php foreach ($bo->result_array() as $row) : ?>
                                 <option value="<?= $row['id_bo'] ?>"><?= $row['nama_bo'] ?></option>
@@ -55,48 +55,37 @@
                     <div class="col-md-4">
                         <div class="form-group">
                             <label for="comment">Keterangan BO:</label>
-                            <textarea class="form-control" rows="4" required></textarea>
+                            <textarea name="keterangan_bo" class="form-control" rows="4" required></textarea>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
                             <label for="comment">Keterangan Logistik:</label>
-                            <textarea class="form-control" rows="4" required></textarea>
+                            <textarea name="keterangan_log" class="form-control" rows="4" required></textarea>
                         </div>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-3">
+                    <div class="col-md-4">
                         <div class="form-group">
-                            <label>TAnggal Masuk:</label>
-                            <input type="date" class="form-control">
+                            <label>Tanggal Masuk:</label>
+                            <input name="tgl_masuk" type="date" class="form-control">
                         </div>
                     </div>
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <label>Tanggal Service:</label>
-                            <input type="date" class="form-control">
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <label>Tanggal Selesai:</label>
-                            <input type="date" class="form-control">
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <label>Status</label>
-                        <select class="form-control" required>
+                    <div class="col-md-4">
+                        <label for="sel1">Status</label>
+                        <select name="id_status" class="form-control" disabled>
                             <option></option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
+                            <?php foreach ($status->result_array() as $row) : ?>
+                                <option value="<?= $row['id_status'] ?>"><?= $row['status'] ?></option>
+                            <?php endforeach; ?>
                         </select>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-3">
-                        <button type="submit" class="btn btn-lg btn-primary">SIMPAN</button>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Simpan</label>
+                            <button type="submit" class="btn btn-primary form-control"><span class="glyphicon glyphicon-floppy-saved" aria-hidden="true"></span></button>
+                        </div>
                     </div>
                 </div>
             </form>
@@ -108,16 +97,28 @@
                 <thead>
                     <tr>
                         <th scope="col">#</th>
-                        <th scope="col">no inv</th>
                         <th scope="col">nama barang</th>
                         <th scope="col">merk barang</th>
-                        <th scope="col">harga</th>
-                        <th scope="col">spec</th>
+                        <th scope="col">Dari BO</th>
+                        <th scope="col">Status</th>
                         <th scope="col">Tindakan</th>
                     </tr>
                 </thead>
                 <tbody>
+                    <?php $i = 1; ?>
+                    <?php foreach ($prog->result_array() as $value) : ?>
+                        <tr>
+                            <td class="hidden"><?= $value['id_prog'] ?></td>
+                            <td><?= $i++ ?></td>
+                            <td><?= $value['nama_barang'] ?></td>
+                            <td><?= $value['merk_barang'] ?></td>
+                            <td><?= $value['nama_bo'] ?></td>
+                            <td><?= $value['status'] ?></td>
+                            <td>
 
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
                 </tbody>
             </table>
         </div>

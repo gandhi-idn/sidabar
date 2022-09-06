@@ -31,4 +31,18 @@ class Input extends CI_Controller
         $this->db->insert('barang', $input);
         redirect('index.php/main/dashboard');
     }
+    public function input_progres()
+    {
+        $id_status = 2;
+        $input = array(
+            'id_barang' => $this->input->post('id_barang'),
+            'id_bo' => $this->input->post('id_bo'),
+            'keterangan_log' => $this->input->post('keterangan_log'),
+            'keterangan_bo' => $this->input->post('keterangan_bo'),
+            'tgl_masuk_barang' => $this->input->post('tgl_masuk'),
+            'id_status' => $id_status,
+        );
+        $this->db->insert('progres', $input);
+        redirect('index.php/main/progres');
+    }
 }

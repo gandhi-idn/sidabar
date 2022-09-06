@@ -87,6 +87,8 @@
                                 </td>
                             </form>
                         </tr>
+                    </thead>
+                    <tbody>
                         <?PHP $i = 1; ?>
                         <?php foreach ($table->result_array() as $row) : ?>
                             <tr>
@@ -103,7 +105,7 @@
                                 </td>
                             </tr>
                         <?php endforeach; ?>
-                    </thead>
+                    </tbody>
                 </table>
             </div>
         </div>
