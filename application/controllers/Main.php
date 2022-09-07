@@ -58,6 +58,7 @@ class Main extends CI_Controller
                $this->db->join('barang', 'progres.id_barang = barang.id_barang', 'inner');
                $this->db->join('bo', 'progres.id_bo = bo.id_bo', 'inner');
                $this->db->join('detail_status', 'progres.id_status = detail_status.id_status', 'left');
+               $this->db->where('detail_status.id_status', 2);
                $query['prog'] = $this->db->get();
 
                $query['barang'] = $this->db->get('barang');

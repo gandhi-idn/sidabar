@@ -10,7 +10,8 @@
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -93,34 +94,47 @@
         <br>
         <hr>
         <div class="row">
-            <table class="table table-bordered">
-                <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">nama barang</th>
-                        <th scope="col">merk barang</th>
-                        <th scope="col">Dari BO</th>
-                        <th scope="col">Status</th>
-                        <th scope="col">Tindakan</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php $i = 1; ?>
-                    <?php foreach ($prog->result_array() as $value) : ?>
-                        <tr>
-                            <td class="hidden"><?= $value['id_prog'] ?></td>
-                            <td><?= $i++ ?></td>
-                            <td><?= $value['nama_barang'] ?></td>
-                            <td><?= $value['merk_barang'] ?></td>
-                            <td><?= $value['nama_bo'] ?></td>
-                            <td><?= $value['status'] ?></td>
-                            <td>
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs" role="tablist" id="myTab">
+                <li class="active"><a href="#previousIssue" role="tab" data-toggle="tab">Barang Baru masuk issue</a></li>
+                <li><a href="#currentIssue" role="tab" data-toggle="tab">Sedang Service</a></li>
+                <li><a href="#nextIssue" role="tab" data-toggle="tab">Sudah Selesai</a></li>
+            </ul>
 
-                            </td>
-                        </tr>
-                    <?php endforeach; ?>
-                </tbody>
-            </table>
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <div class="tab-pane active" id="previousIssue">
+                    <br>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">nama barang</th>
+                                <th scope="col">merk barang</th>
+                                <th scope="col">Dari BO</th>
+                                <th scope="col">Tindakan</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php $i = 1; ?>
+                            <?php foreach ($prog->result_array() as $value) : ?>
+                                <tr>
+                                    <td class="hidden"><?= $value['id_prog'] ?></td>
+                                    <td><?= $i++ ?></td>
+                                    <td><?= $value['nama_barang'] ?></td>
+                                    <td><?= $value['merk_barang'] ?></td>
+                                    <td><?= $value['nama_bo'] ?></td>
+                                    <td>
+                                        <button class="btn btn-info"><span class="glyphicon glyphicon-wrench"></span> Service</button>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="tab-pane" id="currentIssue">Current issue</div>
+                <div class="tab-pane" id="nextIssue">Next issue</div>
+            </div>
         </div>
     </div>
 
