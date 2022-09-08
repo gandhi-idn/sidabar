@@ -96,7 +96,7 @@
         <div class="row">
             <!-- Nav tabs -->
             <ul class="nav nav-tabs" role="tablist" id="myTab">
-                <li class="active"><a href="#previousIssue" role="tab" data-toggle="tab">Barang Baru masuk issue</a></li>
+                <li class="active"><a href="#previousIssue" role="tab" data-toggle="tab">Barang Baru masuk</a></li>
                 <li><a href="#currentIssue" role="tab" data-toggle="tab">Sedang Service</a></li>
                 <li><a href="#nextIssue" role="tab" data-toggle="tab">Sudah Selesai</a></li>
             </ul>
@@ -112,6 +112,9 @@
                                 <th scope="col">nama barang</th>
                                 <th scope="col">merk barang</th>
                                 <th scope="col">Dari BO</th>
+                                <th scope="col">Tanggal Masuk Barang</th>
+                                <th scope="col">Keterangan BO</th>
+                                <th scope="col">Ketreangan Logistik</th>
                                 <th scope="col">Tindakan</th>
                             </tr>
                         </thead>
@@ -124,15 +127,52 @@
                                     <td><?= $value['nama_barang'] ?></td>
                                     <td><?= $value['merk_barang'] ?></td>
                                     <td><?= $value['nama_bo'] ?></td>
+                                    <td><?= $value['tgl_masuk_barang'] ?></td>
+                                    <td><?= $value['keterangan_bo'] ?></td>
+                                    <td><?= $value['keterangan_log'] ?></td>
                                     <td>
-                                        <button class="btn btn-info"><span class="glyphicon glyphicon-wrench"></span> Service</button>
+                                        <a class="btn btn-info" href="<?= base_url() ?>index.php/input/update_progres/<?= $value['id_prog'] ?>"><span class=" glyphicon glyphicon-wrench"></span> Service</a>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>
                         </tbody>
                     </table>
                 </div>
-                <div class="tab-pane" id="currentIssue">Current issue</div>
+                <div class="tab-pane" id="currentIssue">
+                    <br>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">nama barang</th>
+                                <th scope="col">merk barang</th>
+                                <th scope="col">Dari BO</th>
+                                <th scope="col">Tanggal Service</th>
+                                <th scope="col">Keterangan BO</th>
+                                <th scope="col">Ketreangan Logistik</th>
+                                <th scope="col">Tindakan</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php $i = 1; ?>
+                            <?php foreach ($service->result_array() as $value) : ?>
+                                <tr>
+                                    <td class="hidden"><?= $value['id_prog'] ?></td>
+                                    <td><?= $i++ ?></td>
+                                    <td><?= $value['nama_barang'] ?></td>
+                                    <td><?= $value['merk_barang'] ?></td>
+                                    <td><?= $value['nama_bo'] ?></td>
+                                    <td><?= $value['tgl_service'] ?></td>
+                                    <td><?= $value['keterangan_bo'] ?></td>
+                                    <td><?= $value['keterangan_log'] ?></td>
+                                    <td>
+                                        <a class="btn btn-info" href="<?= base_url() ?>index.php/input/update_progres/<?= $value['id_prog'] ?>"><span class=" glyphicon glyphicon-wrench"></span> Service</a>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                </div>
                 <div class="tab-pane" id="nextIssue">Next issue</div>
             </div>
         </div>

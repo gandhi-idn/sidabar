@@ -45,4 +45,17 @@ class Input extends CI_Controller
         $this->db->insert('progres', $input);
         redirect('index.php/main/progres');
     }
+
+    public function update_progres($id)
+    {
+        $data = array(
+            'tgl_service' => date("Y-m-d H:i:s"),
+            'id_status' => 3,
+
+        );
+
+        $this->db->where('id_prog', $id);
+        $this->db->update('progres', $data);
+        redirect('index.php/main/progres');
+    }
 }
