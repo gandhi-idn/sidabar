@@ -39,10 +39,15 @@ class Main extends CI_Controller
      {
           if ($this->session->userdata('username') != '') {
 
-               $query['table'] = $this->db->get('barang');
-               var_dump($query);
+               // select table progres
+               $this->db->select('*');
+               $this->db->from('progres');
+               $this->db->join('barang', 'progres.id_barang = barang.id_barang', 'inner');
+               $this->db->join('bo', 'progres.id_bo = bo.id_bo', 'inner');
+               $this->db->join('detail_status', 'progres.id_status = detail_status.id_status', 'left');
+               $query['table'] = $this->db->get();
 
-               // $this->load->view('dashboard', $query);
+               $this->load->view('dashboard', $query);
           } else {
                redirect(base_url() . 'index.php/main/login');
           }
@@ -98,8 +103,8 @@ class Main extends CI_Controller
           redirect(base_url() . 'index.php/main/login');
      }
 
-     function tes()
+     function edit_prog()
      {
-          echo "string";
+          $this->load->view('edit_prog');
      }
 }

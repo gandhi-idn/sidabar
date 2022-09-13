@@ -58,4 +58,21 @@ class Input extends CI_Controller
         $this->db->update('progres', $data);
         redirect('index.php/main/progres');
     }
+
+    public function update_progres_2($id, $id_status)
+    {
+
+        // select table progres
+        $this->db->select('*');
+        $this->db->from('progres');
+        $this->db->where('id_prog', $id);
+        $query['progres'] = $this->db->get();
+
+        // select table status
+        $this->db->select('*');
+        $this->db->from('detail_status');
+        $this->db->where('id_status', $id_status);
+        $query['status'] = $this->db->get();
+        $this->load->view('edit_prog', $query);
+    }
 }

@@ -74,15 +74,6 @@
                         </div>
                     </div>
                     <div class="col-md-4">
-                        <label for="sel1">Status</label>
-                        <select name="id_status" class="form-control" disabled>
-                            <option></option>
-                            <?php foreach ($status->result_array() as $row) : ?>
-                                <option value="<?= $row['id_status'] ?>"><?= $row['status'] ?></option>
-                            <?php endforeach; ?>
-                        </select>
-                    </div>
-                    <div class="col-md-4">
                         <div class="form-group">
                             <label>Simpan</label>
                             <button type="submit" class="btn btn-primary form-control"><span class="glyphicon glyphicon-floppy-saved" aria-hidden="true"></span></button>
@@ -166,7 +157,17 @@
                                     <td><?= $value['keterangan_bo'] ?></td>
                                     <td><?= $value['keterangan_log'] ?></td>
                                     <td>
-                                        <a class="btn btn-info" href="<?= base_url() ?>index.php/input/update_progres/<?= $value['id_prog'] ?>"><span class=" glyphicon glyphicon-wrench"></span> Service</a>
+                                        <!-- Single button -->
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                Aksi <span class="caret"></span>
+                                            </button>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="<?= base_url() ?>index.php/input/update_progres_2/<?= $value['id_prog'] ?>/4" value="4">Selesai Normal</a></li>
+                                                <li><a href="<?= base_url() ?>index.php/input/update_progres_2/<?= $value['id_prog'] ?>/1" value="1">Kembali ke Logistik</a></li>
+                                                <li><a href="<?= base_url() ?>index.php/input/update_progres_2/<?= $value['id_prog'] ?>/5" value="5">Rusak Total</a></li>
+                                            </ul>
+                                        </div>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>
