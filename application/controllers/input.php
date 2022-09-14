@@ -75,4 +75,18 @@ class Input extends CI_Controller
         $query['status'] = $this->db->get();
         $this->load->view('edit_prog', $query);
     }
+
+    public function update_progres_3($id)
+    {
+        $data = array(
+            'id_prog' => $id,
+            'id_status' => $this->input->post('id_status'),
+            'tgl_selesai' => $this->input->post('tgl_selesai'),
+            'keterangan_final' => $this->input->post('keterangan_final'),
+        );
+
+        $this->db->where('id_prog', $id);
+        $this->db->update('progres', $data);
+        redirect('index.php/main/progres');
+    }
 }

@@ -58,7 +58,7 @@ class Main extends CI_Controller
 
           if ($this->session->userdata('username') != '') {
 
-               // select table progres
+               // select table progres barang masuk IT
                $this->db->select('progres.id_prog, progres.tgl_masuk_barang, progres.keterangan_log, progres.keterangan_bo, barang.merk_barang, barang.nama_barang, bo.nama_bo, detail_status.status');
                $this->db->from('progres');
                $this->db->join('barang', 'progres.id_barang = barang.id_barang', 'inner');
@@ -67,7 +67,7 @@ class Main extends CI_Controller
                $this->db->where('detail_status.id_status', 2);
                $query['prog'] = $this->db->get();
 
-               // select table progres
+               // select table progres barang servie IT
                $this->db->select('progres.id_prog, progres.tgl_service, progres.keterangan_log, progres.keterangan_bo, barang.merk_barang, barang.nama_barang, bo.nama_bo, detail_status.status');
                $this->db->from('progres');
                $this->db->join('barang', 'progres.id_barang = barang.id_barang', 'inner');
@@ -78,6 +78,17 @@ class Main extends CI_Controller
                     3
                );
                $query['service'] = $this->db->get();
+
+               // select table progres barang selesai IT
+               $this->db->select('*');
+               $this->db->from('progres');
+               $this->db->join('barang', 'progres.id_barang = barang.id_barang', 'inner');
+               $this->db->join('bo', 'progres.id_bo = bo.id_bo', 'inner');
+               $this->db->join('detail_status', 'progres.id_status = detail_status.id_status', 'left');
+               $this->db->where('progres.id_status', 1);
+               $this->db->or_where('progres.id_status', 4);
+               $this->db->or_where('progres.id_status', 5);
+               $query['selesai'] = $this->db->get();
 
                $query['barang'] = $this->db->query('SELECT * FROM BARANG WHERE ID_BARANG NOT IN(SELECT id_barang FROM PROGRES)');
                $query['bo'] = $this->db->get('bo');

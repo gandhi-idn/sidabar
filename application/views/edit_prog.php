@@ -21,7 +21,7 @@
     <nav class="navbar navbar-default">
         <div class="container">
             <ul class="nav nav-pills">
-                <li role="presentation" class="enabled"><a href="<?= base_url('index.php/main/progres'); ?>">Kembali ke Progres</a></li>
+                <li role="presentation" class="enabled"><a href="<?= base_url('index.php/main/progres'); ?>"><span class="glyphicon glyphicon-arrow-left"></span> Kembali ke Progres</a></li>
             </ul>
         </div>
     </nav>
@@ -34,41 +34,41 @@
                 <h1 class="h4 text-gray-900 mb-4">Progres Barang Keluar</h1>
             </div>
             <hr>
-            <form method="post" action="<?= base_url('index.php/input/input_progres'); ?>">
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <?php foreach ($progres->result_array() as $value) : ?>
-                                <input name="id_prog" type="hidden" class="form-control" value="<?= $value['id_prog'] ?>">
+            <?php foreach ($progres->result_array() as $value) : ?>
+                <form method="post" action="<?= base_url(); ?>index.php/input/update_progres_3/<?= $value['id_prog'] ?>">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
                             <?php endforeach; ?>
                             <label>Status Final:</label>
                             <?php foreach ($status->result_array() as $value) : ?>
+                                <input name="id_status" type="hidden" class="form-control" value="<?= $value['id_status'] ?>" disabled>
                                 <input name="status" type="text" class="form-control" value="<?= $value['status'] ?>" disabled>
                             <?php endforeach; ?>
+                            </div>
+                            <div class="form-group">
+                                <label>Tanggal Final:</label>
+                                <input name="tgl_selesai" type="date" class="form-control">
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label>Tanggal Final:</label>
-                            <input name="tgl_masuk" type="date" class="form-control">
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label for="comment">Keterangan Final IT:</label>
-                            <textarea name="keterangan_final" class="form-control" rows="5" required></textarea>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4">
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label>Simpan</label>
-                            <button type="submit" class="btn btn-primary form-control"><span class="glyphicon glyphicon-floppy-saved" aria-hidden="true"></span></button>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="comment">Keterangan Final IT:</label>
+                                <textarea name="keterangan_final" class="form-control" rows="5" required></textarea>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </form>
+                    <div class="row">
+                        <div class="col-md-4">
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Simpan</label>
+                                <button type="submit" class="btn btn-primary form-control"><span class="glyphicon glyphicon-floppy-saved" aria-hidden="true"></span></button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
         </div>
     </div>
 

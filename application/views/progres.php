@@ -159,8 +159,7 @@
                                     <td>
                                         <!-- Single button -->
                                         <div class="btn-group">
-                                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                Aksi <span class="caret"></span>
+                                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-list"></span> <span class="caret"></span>
                                             </button>
                                             <ul class="dropdown-menu">
                                                 <li><a href="<?= base_url() ?>index.php/input/update_progres_2/<?= $value['id_prog'] ?>/4" value="4">Selesai Normal</a></li>
@@ -174,7 +173,37 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="tab-pane" id="nextIssue">Next issue</div>
+                <div class="tab-pane" id="nextIssue">
+                    <br>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">nama barang</th>
+                                <th scope="col">Dari BO</th>
+                                <th scope="col">Tanggal Masuk</th>
+                                <th scope="col">Keterangan BO</th>
+                                <th scope="col">Tanggal Selesai</th>
+                                <th scope="col">Ketreangan Final</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php $i = 1; ?>
+                            <?php foreach ($selesai->result_array() as $value) : ?>
+                                <tr>
+                                    <td class="hidden"><?= $value['id_prog'] ?></td>
+                                    <td><?= $i++ ?></td>
+                                    <td><?= $value['nama_barang'] ?></td>
+                                    <td><?= $value['nama_bo'] ?></td>
+                                    <td><?= $value['tgl_masuk_barang'] ?></td>
+                                    <td><?= $value['keterangan_bo'] ?></td>
+                                    <td><?= $value['tgl_selesai'] ?></td>
+                                    <td><?= $value['keterangan_final'] ?></td>
+                                </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
