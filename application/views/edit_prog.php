@@ -59,7 +59,7 @@
                             <?php endforeach; ?>
                             <label>Status Final:</label>
                             <?php foreach ($status->result_array() as $value) : ?>
-                                <input name="id_status" type="hidden" class="form-control" value="<?= $value['id_status'] ?>" disabled>
+                                <input name="id_status" type="hidden" class="form-control" value="<?= $value['id_status'] ?>">
                                 <input name="status" type="text" class="form-control" value="<?= $value['status'] ?>" disabled>
                             <?php endforeach; ?>
                             </div>
