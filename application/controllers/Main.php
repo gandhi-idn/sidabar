@@ -118,4 +118,21 @@ class Main extends CI_Controller
      {
           $this->load->view('edit_prog');
      }
+
+     function filter_laporan()
+     {
+          $this->load->view('filter_laporan');
+     }
+     function laporan()
+     {
+          // select table progres barang masuk
+          $this->db->select('*');
+          $this->db->from('progres');
+          $this->db->join('barang', 'progres.id_barang = barang.id_barang', 'inner');
+          $this->db->join('bo', 'progres.id_bo = bo.id_bo', 'inner');
+          $this->db->join('detail_status', 'progres.id_status = detail_status.id_status', 'left');
+          $query['data'] = $this->db->get();
+
+          $this->load->view('laporan', $query);
+     }
 }

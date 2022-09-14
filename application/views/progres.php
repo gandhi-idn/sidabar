@@ -20,27 +20,33 @@
     <![endif]-->
     <nav class="navbar navbar-default">
         <div class="container">
-        <!DOCTYPE html>
+            <!DOCTYPE html>
             <html>
             <style>
-                 input[type=text],
-                body{
+                input[type=text],
+                body {
                     height: 100vh;
                     background-image: url(https://i.ibb.co/T48r2Tn/Untitled.png);
                 }
+
                 [type=submit]:hover {
                     background-color: #45a049;
                 }
-                table{
-                    color:black;
-                    background:white;
+
+                table {
+                    color: black;
+                    background: white;
                 }
-                table, th, td {
+
+                table,
+                th,
+                td {
                     border: 1px solid;
                 }
-                h4{
-                    position:absolute;
-                    top:50%;
+
+                h4 {
+                    position: absolute;
+                    top: 50%;
                     left: 50%;
                     transform: translate(-50%, -50%);
                     background-color: white;
@@ -49,18 +55,19 @@
             </style>
             <ul class="nav nav-pills">
                 <li role="presentation" class="enabled"><a href="<?= base_url('index.php/main/dashboard'); ?>">Dashboard</a></li>
+                <li role="presentation" class="enabled"><a href="<?= base_url('index.php/main/filter_laporan'); ?>">Laporan</a></li>
                 <li role="presentation" class="enabled"><a href="<?= base_url('index.php/main/login'); ?>">logout</a></li>
             </ul>
         </div>
     </nav>
 </head>
 
-<body>    
+<body>
     <div class="container">
         <div class="row-col jumbotron">
             <div class="text-center">
                 <h2>Progres Barang</h2>
-            </div>                  
+            </div>
             <form method="post" action="<?= base_url('index.php/input/input_progres'); ?>">
                 <div class="row">
                     <div class="col-md-4">
@@ -107,7 +114,7 @@
                     </div>
                 </div>
             </form>
-        </div>        
+        </div>
         <hr>
         <div class="row-col jumbotron">
             <!-- Nav tabs -->
@@ -230,8 +237,8 @@
                     </table>
                 </div>
             </div>
-        </div>                            
-    </div>    
+        </div>
+    </div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
