@@ -77,6 +77,7 @@
                             <ul class="nav nav-tabs" role="tablist" id="myTab">
                                 <li class="active"><a href="#previousIssue" role="tab" data-toggle="tab">Laporan barang Masuk</a></li>
                                 <li><a href="#currentIssue" role="tab" data-toggle="tab">Laporan barang Keluar</a></li>
+                                <li class="service"><a href="#service" role="tab" data-toggle="tab">Laporan barang service</a></li>
                             </ul>
 
                             <!-- Tab panes -->
@@ -117,6 +118,29 @@
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label for="comment">Sampai Tanggal:</label>
+                                                    <input type="date" name="tgl_akhir" class="form-control" rows="4" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label for="comment">Proses</label>
+                                                <button type="submit" class="form-control btn btn-primary"><span class="glyphicon glyphicon-arrow-right"></span></button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="tab-pane service" id="service">
+                                    <br>
+                                    <form method="post" action="">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label for="comment">Tanggal Service :</label>
+                                                    <input type="date" name="tgl_awal" class="form-control" rows="4" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label for="comment">Tanggal Selesai:</label>
                                                     <input type="date" name="tgl_akhir" class="form-control" rows="4" required>
                                                 </div>
                                             </div>
