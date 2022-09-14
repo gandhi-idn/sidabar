@@ -24,7 +24,7 @@
                                 }
                               body{
                                    height: 100vh;
-                                   background-image: url(https://i.ibb.co/LJj59T0/330563.jpg);
+                                   background-image: url(https://i.ibb.co/NV83g9f/joanna-kosinska-b-F2vsuby-Hc-Q-unsplash.jpg);
                                    background-size: cover;
                                    background-position: center;
                                    background-repeat: no-repeat;
@@ -34,11 +34,12 @@
                               }
                               </style>
                               <body>
+                              <h5>  
                                  <h3>Masukan Username dan Password </h3>
                                    <div class="text-center">
                                          
                                          <hr>  
-                                        <br /><br /><br />  
+                                        <br /><br /><br />
                                         <form method="post" action="<?php echo base_url(); ?>index.php/main/login_validation">  
                                              <div class="form-group">  
                                                   <label>Masukan Username</label>  
@@ -57,6 +58,7 @@
                                                   <?php echo '<label class="text-danger">'.$this->session->flashdata("error").'</label>';?>
                                              </div>
                                         </div>
+                                        <h5>
                                    </div>
                               </div>
                         </div>

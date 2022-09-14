@@ -20,6 +20,33 @@
     <![endif]-->
     <nav class="navbar navbar-default">
         <div class="container">
+        <!DOCTYPE html>
+            <html>
+            <style>
+                 input[type=text],
+                body{
+                    height: 100vh;
+                    background-image: url(https://i.ibb.co/T48r2Tn/Untitled.png);
+                }
+                [type=submit]:hover {
+                    background-color: #45a049;
+                }
+                table{
+                    color:black;
+                    background:white;
+                }
+                table, th, td {
+                    border: 1px solid;
+                }
+                h4{
+                    position:absolute;
+                    top:50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    background-color: white;
+                    border-radius: 10px;
+                }
+            </style>
             <ul class="nav nav-pills">
                 <li role="presentation" class="enabled"><a href="<?= base_url('index.php/main/dashboard'); ?>">Dashboard</a></li>
                 <li role="presentation" class="enabled"><a href="<?= base_url('index.php/main/login'); ?>">logout</a></li>
@@ -28,13 +55,12 @@
     </nav>
 </head>
 
-<body>
+<body>    
     <div class="container">
-        <div class="row">
+        <div class="row-col jumbotron">
             <div class="text-center">
-                <h1 class="h4 text-gray-900 mb-4">Progres Barang</h1>
-            </div>
-            <hr>
+                <h2>Progres Barang</h2>
+            </div>                  
             <form method="post" action="<?= base_url('index.php/input/input_progres'); ?>">
                 <div class="row">
                     <div class="col-md-4">
@@ -81,10 +107,9 @@
                     </div>
                 </div>
             </form>
-        </div>
-        <br>
+        </div>        
         <hr>
-        <div class="row">
+        <div class="row-col jumbotron">
             <!-- Nav tabs -->
             <ul class="nav nav-tabs" role="tablist" id="myTab">
                 <li class="active"><a href="#previousIssue" role="tab" data-toggle="tab">Barang Baru masuk</a></li>
@@ -205,9 +230,8 @@
                     </table>
                 </div>
             </div>
-        </div>
-    </div>
-
+        </div>                            
+    </div>    
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->

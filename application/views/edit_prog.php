@@ -20,6 +20,21 @@
     <![endif]-->
     <nav class="navbar navbar-default">
         <div class="container">
+        <!DOCTYPE html>
+            <html>
+                <style>
+                    input[type=text],
+                    body{
+                    background-image: url(https://i.ibb.co/T48r2Tn/Untitled.png);
+                    }
+                    h4{
+                        background-color: white;
+                        border-radius: 10px;
+                        }
+                    input{
+                        background-color: white;
+                    }
+                </style>
             <ul class="nav nav-pills">
                 <li role="presentation" class="enabled"><a href="<?= base_url('index.php/main/progres'); ?>"><span class="glyphicon glyphicon-arrow-left"></span> Kembali ke Progres</a></li>
             </ul>
@@ -29,9 +44,9 @@
 
 <body>
     <div class="container">
-        <div class="row">
+        <div class="row-col jumbotron">                               
             <div class="text-center">
-                <h1 class="h4 text-gray-900 mb-4">Progres Barang Keluar</h1>
+                <h2 class="text-gray-900 mb-4">Progres Barang Keluar</h2>
             </div>
             <hr>
             <?php foreach ($progres->result_array() as $value) : ?>
@@ -68,7 +83,22 @@
                             </div>
                         </div>
                     </div>
+<<<<<<< HEAD
                 </form>
+=======
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Simpan</label>
+                            <button type="submit" class="btn btn-primary form-control"><span class="glyphicon glyphicon-floppy-saved" aria-hidden="true"></span></button>
+                        </div>
+                    </div>
+                </div>
+            </form>                            
+>>>>>>> ecda32b7d74a3c11fcaf293084e1e11a152ec3d3
         </div>
     </div>
 
