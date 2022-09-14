@@ -20,6 +20,21 @@
     <![endif]-->
     <nav class="navbar navbar-default">
         <div class="container">
+        <!DOCTYPE html>
+            <html>
+                <style>
+                    input[type=text],
+                    body{
+                    background-image: url(https://i.ibb.co/T48r2Tn/Untitled.png);
+                    }
+                    h4{
+                        background-color: white;
+                        border-radius: 10px;
+                        }
+                    input{
+                        background-color: white;
+                    }
+                </style>
             <ul class="nav nav-pills">
                 <li role="presentation" class="enabled"><a href="<?= base_url('index.php/main/progres'); ?>">Kembali ke Progres</a></li>
             </ul>
@@ -29,9 +44,9 @@
 
 <body>
     <div class="container">
-        <div class="row">
+        <div class="row-col jumbotron">                               
             <div class="text-center">
-                <h1 class="h4 text-gray-900 mb-4">Progres Barang Keluar</h1>
+                <h2 class="text-gray-900 mb-4">Progres Barang Keluar</h2>
             </div>
             <hr>
             <form method="post" action="<?= base_url('index.php/input/input_progres'); ?>">
@@ -68,7 +83,7 @@
                         </div>
                     </div>
                 </div>
-            </form>
+            </form>                            
         </div>
     </div>
 
