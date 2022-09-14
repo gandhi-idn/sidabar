@@ -9,7 +9,7 @@
     <title>Bootstrap 101 Template</title>
 
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" >
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -21,6 +21,7 @@
         <div class="container">
             <ul class="nav nav-pills">
                 <li role="presentation" class="enabled"><a href="<?= base_url('index.php/main/progres'); ?>">Progres</a></li>
+                <li role="presentation" class="enabled"><a href="<?= base_url('index.php/main/filter_laporan'); ?>">Laporan</a></li>
                 <li role="presentation" class="enabled"><a href="<?= base_url('index.php/main/login'); ?>">logout</a></li>
             </ul>
         </div>
@@ -30,35 +31,43 @@
 <body>
     <div class="container">
         <div class="row-col jumbotron">
-        <!DOCTYPE html>
+            <!DOCTYPE html>
             <html>
-                <style>
-                    input[type=text], 
-                    span {
-                        color:green;
-                    }
-                    body{
-                        height: 100vh;
-                        background-image: url(https://i.ibb.co/T48r2Tn/Untitled.png);
-                                   
-                    }
-                    [type=submit]:hover {
-                        background-color: #45a049;
-                    }
-                    table, th, td {
-                        border: 1px solid;
-                    }
-                    form{
-                        color:white;
-                    }
-                    th{   
-                        background-color: limegreen;
-                    }
-                    h5{
-                        border-radius: 10px;
-                        background-color:white;
-                    }
-                </style>            
+            <style>
+                input[type=text],
+                span {
+                    color: green;
+                }
+
+                body {
+                    height: 100vh;
+                    background-image: url(https://i.ibb.co/T48r2Tn/Untitled.png);
+
+                }
+
+                [type=submit]:hover {
+                    background-color: #45a049;
+                }
+
+                table,
+                th,
+                td {
+                    border: 1px solid;
+                }
+
+                form {
+                    color: white;
+                }
+
+                th {
+                    background-color: limegreen;
+                }
+
+                h5 {
+                    border-radius: 10px;
+                    background-color: white;
+                }
+            </style>
             <div class="text-center">
                 <h2 class=" text-gray-900 mb-4">Data Barang</h2>
             </div>
@@ -136,7 +145,7 @@
                         <?php endforeach; ?>
                     </tbody>
                 </table>
-            </div>            
+            </div>
         </div>
     </div>
 
