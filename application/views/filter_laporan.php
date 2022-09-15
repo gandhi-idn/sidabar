@@ -99,9 +99,10 @@
                                             </div>
                                             <div class="form-group">
                                                 <label for="sel1">Cek</label>
-                                                <input type="submit" class="form-control btn btn-primary">
+                                                <button type="submit" target="_blank" class="form-control btn btn-primary"></button>
                                             </div>
                                         </div>
+                                    </div>
                                 </form>
                             </div>
                         </div>

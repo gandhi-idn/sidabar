@@ -97,11 +97,14 @@ class Input extends CI_Controller
         $tgl_akhir = $this->input->post('tgl_akhir');
         $jenis = $this->input->post('jenis');
         if ($jenis == 2) {
-            $tgl = 'tgl_barang_masuk';
+            $tgl = 'tgl_masuk_barang >=';
+            $tgl_a = 'tgl_masuk_barang <=';
         } elseif ($jenis == 3) {
-            $tgl = 'tgl_service';
+            $tgl = 'tgl_service >=';
+            $tgl_a = 'tgl_service <=';
         } else {
-            $tgl = 'tgl_selesai';
+            $tgl = 'tgl_selesai >=';
+            $tgl_a = 'tgl_selesai <=';
         }
         // var_dump($tgl);
 
@@ -111,8 +114,8 @@ class Input extends CI_Controller
         $this->db->join('barang', 'progres.id_barang = barang.id_barang', 'inner');
         $this->db->join('bo', 'progres.id_bo = bo.id_bo', 'inner');
         $this->db->join('detail_status', 'progres.id_status = detail_status.id_status', 'left');
-        $this->db->where($tgl >= $tgl_awal);
-        $this->db->where($tgl <= $tgl_akhir);
+        $this->db->where($tgl, $tgl_awal);
+        $this->db->where($tgl_a, $tgl_akhir);
 
         $query['data'] = $this->db->get();
         // var_dump($query);
