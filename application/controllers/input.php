@@ -89,4 +89,33 @@ class Input extends CI_Controller
         $this->db->update('progres', $data);
         redirect('index.php/main/progres');
     }
+
+    public function data_laporan()
+    {
+
+        $tgl_awal = $this->input->post('tgl_awal');
+        $tgl_akhir = $this->input->post('tgl_akhir');
+        $jenis = $this->input->post('jenis');
+        if ($jenis == 2) {
+            $tgl = 'tgl_barang_masuk';
+        } elseif ($jenis == 3) {
+            $tgl = 'tgl_service';
+        } else {
+            $tgl = 'tgl_selesai';
+        }
+        // var_dump($tgl);
+
+        // select table progres barang masuk
+        $this->db->select('*');
+        $this->db->from('progres');
+        $this->db->join('barang', 'progres.id_barang = barang.id_barang', 'inner');
+        $this->db->join('bo', 'progres.id_bo = bo.id_bo', 'inner');
+        $this->db->join('detail_status', 'progres.id_status = detail_status.id_status', 'left');
+        $this->db->where($tgl >= $tgl_awal);
+        $this->db->where($tgl <= $tgl_akhir);
+
+        $query['data'] = $this->db->get();
+        // var_dump($query);
+        $this->load->view('laporan', $query);
+    }
 }

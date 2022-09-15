@@ -73,84 +73,36 @@
                 <div class="panel panel-success">
                     <div class="panel-body">
                         <div class="row-col">
-                            <!-- Nav tabs -->
-                            <ul class="nav nav-tabs" role="tablist" id="myTab">
-                                <li class="active"><a href="#previousIssue" role="tab" data-toggle="tab">Laporan barang Masuk</a></li>
-                                <li><a href="#currentIssue" role="tab" data-toggle="tab">Laporan barang Keluar</a></li>
-                                <li class="service"><a href="#service" role="tab" data-toggle="tab">Laporan barang service</a></li>
-                            </ul>
-
-                            <!-- Tab panes -->
                             <div class="tab-content">
-                                <div class="tab-pane active" id="previousIssue">
-                                    <br>
-                                    <form method="post" action="">
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label for="comment">Dari Tanggal:</label>
-                                                    <input type="date" name="tgl_awal" class="form-control" rows="4" required>
-                                                </div>
+                                <br>
+                                <form method="post" action="<?= base_url() ?>index.php/input/data_laporan">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label for="comment">Dari Tanggal:</label>
+                                                <input type="date" name="tgl_awal" class="form-control" rows="4" required>
                                             </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label for="comment">Sampai Tanggal:</label>
-                                                    <input type="date" name="tgl_akhir" class="form-control" rows="4" required>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <label for="comment">Proses</label>
-                                                <button type="submit" class="form-control btn btn-primary"><span class="glyphicon glyphicon-arrow-right"></span></button>
+                                            <div class="form-group">
+                                                <label for="comment">Sampai Tanggal:</label>
+                                                <input type="date" name="tgl_akhir" class="form-control" rows="4" required>
                                             </div>
                                         </div>
-                                    </form>
-                                </div>
-                                <div class="tab-pane" id="currentIssue">
-                                    <br>
-                                    <form method="post" action="">
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label for="comment">Dari Tanggal:</label>
-                                                    <input type="date" name="tgl_awal" class="form-control" rows="4" required>
-                                                </div>
+                                        <div class="col-md-8">
+                                            <div class="form-group">
+                                                <label for="sel1">Select Laporan:</label>
+                                                <select name="jenis" class="form-control">
+                                                    <option>...............</option>
+                                                    <option value="2">Laporan Barang Masuk</option>
+                                                    <option value="5">Laporan Barang Keluar</option>
+                                                    <option value="3">Laporan Barang Service</option>
+                                                </select>
                                             </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label for="comment">Sampai Tanggal:</label>
-                                                    <input type="date" name="tgl_akhir" class="form-control" rows="4" required>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <label for="comment">Proses</label>
-                                                <button type="submit" class="form-control btn btn-primary"><span class="glyphicon glyphicon-arrow-right"></span></button>
+                                            <div class="form-group">
+                                                <label for="sel1">Cek</label>
+                                                <input type="submit" class="form-control btn btn-primary">
                                             </div>
                                         </div>
-                                    </form>
-                                </div>
-                                <div class="tab-pane service" id="service">
-                                    <br>
-                                    <form method="post" action="">
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label for="comment">Tanggal Service :</label>
-                                                    <input type="date" name="tgl_awal" class="form-control" rows="4" required>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label for="comment">Tanggal Selesai:</label>
-                                                    <input type="date" name="tgl_akhir" class="form-control" rows="4" required>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <label for="comment">Proses</label>
-                                                <button type="submit" class="form-control btn btn-primary"><span class="glyphicon glyphicon-arrow-right"></span></button>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
+                                </form>
                             </div>
                         </div>
                     </div>
