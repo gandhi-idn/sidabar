@@ -34,119 +34,89 @@
             <!DOCTYPE html>
             <html>
             <style>
-                input[type=text],
-                span {
-                    color: green;
-                }
-
                 body {
                     height: 100vh;
                     background-image: url(https://i.ibb.co/T48r2Tn/Untitled.png);
 
-                }
-
-                [type=submit]:hover {
-                    background-color: #45a049;
-                }
-
-                table,
-                th,
-                td {
-                    border: 1px solid;
-                }
-
-                form {
-                    color: white;
-                }
-
-                th {
-                    background-color: limegreen;
-                }
-
-                h5 {
-                    border-radius: 10px;
-                    background-color: white;
                 }
             </style>
             <div class="text-center">
                 <h2 class=" text-gray-900 mb-4">Data Barang</h2>
             </div>
             <div class="col">
-                <table class="table table-bordered">
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">no inv</th>
-                            <th scope="col">nama barang</th>
-                            <th scope="col">merk barang</th>
-                            <th scope="col">harga</th>
-                            <th scope="col">spec</th>
-                            <th scope="col">Tindakan</th>
-                        </tr>
-                        <tr>
-                            <td>
-
-                            </td>
-                            <form class="user" method="POST" action="<?= base_url('index.php/input/input_barang'); ?>">
-                                <td>
-                                    <div class="form-group">
-                                        <input type="text" class="form-control form-control-user" id="" placeholder="no inv" name="no_inv" required>
-                                        <?= form_error('no inv', '<small class="tex-danger pl-3">', '</small>') ?>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="form-group">
-                                        <input type="text" class="form-control form-control-user" id="" placeholder="nama barang" name="nama_barang" required>
-                                        <?= form_error('nama barang', '<small class="tex-danger pl-3">', '</small>') ?>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="form-group">
-                                        <input type="text" class="form-control form-control-user" id="" placeholder="merk barang" name="merk_barang" required>
-                                        <?= form_error('merk barang', '<small class="tex-danger pl-3">', '</small>') ?>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="form-group">
-                                        <input type="text" class="form-control form-control-user" id="" placeholder="harga" name="harga" required>
-                                        <?= form_error('harga', '<small class="tex-danger pl-3">', '</small>') ?>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="form-group">
-                                        <input type="text" class="form-control form-control-user" id="" placeholder="spec" name="spec" required>
-                                        <?= form_error('spec', '<small class="tex-danger pl-3">', '</small>') ?>
-                                    </div>
-                                </td>
-                                <td>
-                                    <button type="submit" class="btn btn-primary btn-user btn-block">
-                                        Simpan
-                                    </button>
-                                </td>
-                            </form>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?PHP $i = 1; ?>
-                        <?php foreach ($table->result_array() as $row) : ?>
+                <form class="user" method="POST" action="<?= base_url('index.php/input/input_barang'); ?>">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Nomor Inventaris</label>
+                                <input type="text" class="form-control" placeholder="no inv" name="no_inv" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Nma Barang</label>
+                                <input type="text" class="form-control" placeholder="nama barang" name="nama_barang" required>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Merk Barang</label>
+                                <input type="text" class="form-control" placeholder="merk barang" name="merk_barang" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Harga</label>
+                                <input type="text" class="form-control" placeholder="harga" name="harga" required>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Spec</label>
+                                <input type="text" class="form-control" placeholder="spec" name="spec" required>
+                            </div>
+                            <label>.</label>
+                            <button type="submit" class="btn btn-primary form-control">
+                                Simpan
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col">
+                    <table class="table table-bordered">
+                        <thead>
                             <tr>
-                                <td class="hidden"><?= $row['id_barang'] ?></td>
-                                <td><?= $i++ ?></td>
-                                <td><?= $row['no_inv'] ?></td>
-                                <td><?= $row['nama_barang'] ?></td>
-                                <td><?= $row['merk_barang'] ?></td>
-                                <td><?= $row['harga'] ?></td>
-                                <td><?= $row['spec'] ?></td>
-                                <td>
-                                    <a class="btn btn-warning btn-user btn-block" href="#">Edit</a>
-                                    <a class="btn btn-danger btn-user btn-block" href="#">Hapus<a>
-                                </td>
+                                <th scope="col">#</th>
+                                <th scope="col">no inv</th>
+                                <th scope="col">nama barang</th>
+                                <th scope="col">merk barang</th>
+                                <th scope="col">harga</th>
+                                <th scope="col">spec</th>
+                                <th scope="col">Tindakan</th>
                             </tr>
-                        <?php endforeach; ?>
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            <?PHP $i = 1; ?>
+                            <?php foreach ($table->result_array() as $row) : ?>
+                                <tr>
+                                    <td class="hidden"><?= $row['id_barang'] ?></td>
+                                    <td><?= $i++ ?></td>
+                                    <td><?= $row['no_inv'] ?></td>
+                                    <td><?= $row['nama_barang'] ?></td>
+                                    <td><?= $row['merk_barang'] ?></td>
+                                    <td><?= $row['harga'] ?></td>
+                                    <td><?= $row['spec'] ?></td>
+                                    <td>
+                                        <a class="btn btn-warning btn-user btn-block" href="#">Edit</a>
+                                        <a class="btn btn-danger btn-user btn-block" href="#">Hapus<a>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
+    </div>
     </div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
