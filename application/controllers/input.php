@@ -99,14 +99,62 @@ class Input extends CI_Controller
         if ($jenis == 2) {
             $tgl = 'tgl_masuk_barang >=';
             $tgl_a = 'tgl_masuk_barang <=';
+            $data = array('judul' => 'Data Barang Masuk');
+            $data['column'] = array(
+                '0' => '#',
+                'a' => 'Nama Barang',
+                'b' => 'Nama BO',
+                'c' => 'Kode Alternatif',
+                'd' => 'Keterangan Logistik',
+                'e' => 'Tanggal Masuk',
+            );
+            $data['fields'] = array(
+                'nama_barang',
+                'nama_bo',
+                'no_inv',
+                'keterangan_log',
+                'tgl_masuk_barang'
+            );
         } elseif ($jenis == 3) {
             $tgl = 'tgl_service >=';
             $tgl_a = 'tgl_service <=';
+            $data = array('judul' => 'Data Barang Service');
+            $data['column'] = array(
+                '0' => '#',
+                'a' => 'Nama Barang',
+                'b' => 'Nama BO',
+                'c' => 'Kode Alternatif',
+                'd' => 'Keterangan BO',
+                'e' => 'Tanggal Service',
+            );
+            $data['fields'] = array(
+                'nama_barang',
+                'nama_bo',
+                'no_inv',
+                'keterangan_bo',
+                'tgl_service'
+            );
         } else {
             $tgl = 'tgl_selesai >=';
             $tgl_a = 'tgl_selesai <=';
+            $data = array('judul' => 'Data Barang Keluar/Selesai');
+            $data['column'] = array(
+                '0' => '#',
+                'a' => 'Nama Barang',
+                'b' => 'Nama BO',
+                'c' => 'Kode Alternatif',
+                'd' => 'Keterangan Final IT',
+                'e' => 'Tanggal Selesai',
+            );
+            $data['fields'] = array(
+                'nama_barang',
+                'nama_bo',
+                'no_inv',
+                'keterangan_final',
+                'tgl_selesai'
+            );
         }
-        // var_dump($tgl);
+        // var_dump($column);
 
         // select table progres barang masuk
         $this->db->select('*');
@@ -117,8 +165,8 @@ class Input extends CI_Controller
         $this->db->where($tgl, $tgl_awal);
         $this->db->where($tgl_a, $tgl_akhir);
 
-        $query['data'] = $this->db->get();
+        $data['table'] = $this->db->get();
         // var_dump($query);
-        $this->load->view('laporan', $query);
+        $this->load->view('laporan', $data);
     }
 }

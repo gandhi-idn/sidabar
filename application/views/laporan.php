@@ -25,27 +25,30 @@
     <div class="container">
         <div class="row">
             <div class="text-center">
-                <h2>Daftar Barang masuk</h2>
+                <h2><?= $judul; ?></h2>
             </div>
-            <a class="btn btn-success" href="#">Export ke excel</a>
+            <ul class="nav nav-pills">
+                <li role="presentation" class="enabled"><a href="<?= base_url('index.php/main/filter_laporan'); ?>">Kembali ke Filter</a></li>
+                <li role="presentation" class="enabled"><a href="#">Export to Excel</a></li>
+            </ul>
             <hr>
             <div class="col">
-                <table class="table table-bordered">
+                <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th>Nama Barang</th>
-                            <th>Nama BO</th>
-                            <th>Kode Alternativ</th>
-                            <th>Keterangan Logistik</th>
+                            <?php foreach ($column as $row) : ?>
+                                <th><?php echo $row; ?></th>
+                            <?php endforeach; ?>
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach ($data->result_array() as $row) : ?>
+                        <?php $i = 1; ?>
+                        <?php foreach ($table->result_array() as $row) : ?>
                             <tr>
-                                <td><?= $row['nama_barang'] ?></td>
-                                <td><?= $row['nama_bo'] ?></td>
-                                <td><?= $row['no_inv'] ?></td>
-                                <td><?= $row['keterangan_log'] ?></td>
+                                <td><?= $i++ ?></td>
+                                <?php foreach ($fields as $col) : ?>
+                                    <td><?= $row[$col] ?></td>
+                                <?php endforeach; ?>
                             </tr>
                         <?php endforeach; ?>
                     </tbody>

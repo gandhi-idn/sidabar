@@ -56,7 +56,6 @@
             </style>
             <ul class="nav nav-pills">
                 <li role="presentation" class="enabled"><a href="<?= base_url('index.php/main/dashboard'); ?>">Dashboard</a></li>
-                <li role="presentation" class="enabled"><a href="<?= base_url('index.php/main/filter_laporan'); ?>">Laporan</a></li>
                 <li role="presentation" class="enabled"><a href="<?= base_url('index.php/main/login'); ?>">logout</a></li>
             </ul>
         </div>
@@ -66,12 +65,12 @@
 <body>
     <div class="container">
         <div class="row">
-            <div class="text-center">
-                <h2>Filter Laporan</h2>
-            </div>
             <div class="col">
                 <div class="panel panel-success">
                     <div class="panel-body">
+                        <div class="text-center">
+                            <h2>Filter Laporan</h2>
+                        </div>
                         <div class="row-col">
                             <div class="tab-content">
                                 <br>
