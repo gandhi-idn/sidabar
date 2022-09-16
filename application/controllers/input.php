@@ -169,4 +169,8 @@ class Input extends CI_Controller
         // var_dump($query);
         $this->load->view('laporan', $data);
     }
+
+    function edit_barang()
+    {
+    }
 }

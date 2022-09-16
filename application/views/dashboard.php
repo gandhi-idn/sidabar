@@ -49,27 +49,27 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label>Nomor Inventaris</label>
-                                <input type="text" class="form-control" placeholder="no inv" name="no_inv" required>
+                                <input type="text" class="form-control" placeholder="no inv" name="no_inv" id="inv" required>
                             </div>
                             <div class="form-group">
-                                <label>Nma Barang</label>
-                                <input type="text" class="form-control" placeholder="nama barang" name="nama_barang" required>
+                                <label>Nama Barang</label>
+                                <input type="text" class="form-control" placeholder="nama barang" name="nama_barang" id="nama" required>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label>Merk Barang</label>
-                                <input type="text" class="form-control" placeholder="merk barang" name="merk_barang" required>
+                                <input type="text" class="form-control" placeholder="merk barang" name="merk_barang" id="merk" required>
                             </div>
                             <div class="form-group">
                                 <label>Harga</label>
-                                <input type="text" class="form-control" placeholder="harga" name="harga" required>
+                                <input type="text" class="form-control" placeholder="harga" name="harga" id="harga" required>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label>Spec</label>
-                                <input type="text" class="form-control" placeholder="spec" name="spec" required>
+                                <input type="text" class="form-control" placeholder="spec" name="spec" id="spec" required>
                             </div>
                             <label>.</label>
                             <button type="submit" class="btn btn-primary form-control">
@@ -100,13 +100,13 @@
                                 <tr>
                                     <td class="hidden"><?= $row['id_barang'] ?></td>
                                     <td><?= $i++ ?></td>
-                                    <td><?= $row['no_inv'] ?></td>
-                                    <td><?= $row['nama_barang'] ?></td>
-                                    <td><?= $row['merk_barang'] ?></td>
-                                    <td><?= $row['harga'] ?></td>
-                                    <td><?= $row['spec'] ?></td>
+                                    <td id="t_inv"><?= $row['no_inv'] ?></td>
+                                    <td id="t_nama"><?= $row['nama_barang'] ?></td>
+                                    <td id="t_merk"><?= $row['merk_barang'] ?></td>
+                                    <td id="t_harga"><?= $row['harga'] ?></td>
+                                    <td id="t_spec"><?= $row['spec'] ?></td>
                                     <td>
-                                        <a class="btn btn-warning btn-user btn-block" href="#">Edit</a>
+                                        <a class="btn btn-warning btn-user btn-block" id="edit" href="#">Edit</a>
                                         <a class="btn btn-danger btn-user btn-block" href="#">Hapus<a>
                                     </td>
                                 </tr>
