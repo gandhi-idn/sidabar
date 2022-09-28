@@ -107,7 +107,7 @@
                     <div class="nano-content">
                         <nav id="menu" class="nav-main" role="navigation">
                             <ul class="nav nav-main">
-                                <li class="nav-active">
+                                <li>
                                     <a href="<?= base_url('index.php/main/enter'); ?>">
                                         <i class="fa fa-home" aria-hidden="true"></i>
                                         <span>Dashboard</span>
@@ -126,7 +126,7 @@
                                         <span>Progres</span>
                                     </a>
                                 </li>
-                                <li>
+                                <li class="nav-active">
                                     <a>
                                         <i class="fa fa-copy" aria-hidden="true"></i>
                                         <span>Laporan</span>
@@ -145,16 +145,16 @@
 
             <section role="main" class="content-body">
                 <header class="page-header">
-                    <h2>Progres Barang</h2>
+                    <h2>Filter Laporan</h2>
 
                     <div class="right-wrapper pull-right">
                         <ol class="breadcrumbs">
                             <li>
-                                <a href="index.html">
-                                    <i class="fa fa-gear"></i>
+                                <a href="#">
+                                    <i class="fa fa-file-excel-o"></i>
                                 </a>
                             </li>
-                            <li><span>Progres Barang</span></li>
+                            <li><span>Laporan</span></li>
                         </ol>
 
                         <a class="sidebar-right-toggle" data-open="sidebar-right"><i class="fa fa-chevron-left"></i></a>

@@ -107,14 +107,14 @@
                     <div class="nano-content">
                         <nav id="menu" class="nav-main" role="navigation">
                             <ul class="nav nav-main">
-                                <li class="nav-active">
+                                <li>
                                     <a href="<?= base_url('index.php/main/enter'); ?>">
                                         <i class="fa fa-home" aria-hidden="true"></i>
                                         <span>Dashboard</span>
                                     </a>
                                 </li>
-                                <li>
-                                    <a href="<?= base_url('index.php/main/input_barang'); ?>">
+                                <li class="nav-active">
+                                    <a href="#">
                                         <i class="fa fa-database" aria-hidden="true"></i>
                                         <span>Input Barang</span>
                                     </a>
@@ -150,7 +150,7 @@
                     <div class="right-wrapper pull-right">
                         <ol class="breadcrumbs">
                             <li>
-                                <a href="index.html">
+                                <a href="=#">
                                     <i class="fa fa-database"></i>
                                 </a>
                             </li>

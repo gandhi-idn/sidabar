@@ -29,7 +29,7 @@ class Input extends CI_Controller
             'spec' => $this->input->post('spec'),
         );
         $this->db->insert('barang', $input);
-        redirect('index.php/main/dashboard');
+        redirect('index.php/main/input_barang');
     }
     public function input_progres()
     {

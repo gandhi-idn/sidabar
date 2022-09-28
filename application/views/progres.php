@@ -107,7 +107,7 @@
                     <div class="nano-content">
                         <nav id="menu" class="nav-main" role="navigation">
                             <ul class="nav nav-main">
-                                <li class="nav-active">
+                                <li>
                                     <a href="<?= base_url('index.php/main/enter'); ?>">
                                         <i class="fa fa-home" aria-hidden="true"></i>
                                         <span>Dashboard</span>
@@ -119,8 +119,8 @@
                                         <span>Input Barang</span>
                                     </a>
                                 </li>
-                                <li>
-                                    <a href="<?= base_url('index.php/main/progres'); ?>">
+                                <li class="nav-active">
+                                    <a href="#">
                                         <!-- <span class="pull-right label label-primary">182</span> -->
                                         <i class="fa fa-cog" aria-hidden="true"></i>
                                         <span>Progres</span>
@@ -150,7 +150,7 @@
                     <div class="right-wrapper pull-right">
                         <ol class="breadcrumbs">
                             <li>
-                                <a href="index.html">
+                                <a href="#">
                                     <i class="fa fa-gear"></i>
                                 </a>
                             </li>
@@ -199,7 +199,7 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label>Tanggal Masuk:</label>
-                                    <input name="tgl_masuk" data-plugin-datepicker type="text" class="form-control">
+                                    <input type="date" name="tgl_masuk" type="text" class="form-control">
                                 </div>
                             </div>
                             <div class="col-md-4">
