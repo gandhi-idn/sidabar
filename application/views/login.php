@@ -53,6 +53,7 @@
                             <label>Username</label>
                             <div class="input-group input-group-icon">
                                 <input name="username" type="text" class="form-control input-lg" required />
+                                <?php echo '<label class="text-danger">' . $this->session->flashdata("error") . '</label>'; ?>
                                 <span class="input-group-addon">
                                     <span class="icon icon-lg">
                                         <i class="fa fa-user"></i>
@@ -63,6 +64,7 @@
                         <div class="form-group mb-lg">
                             <div class="input-group input-group-icon">
                                 <input name="password" type="password" class="form-control input-lg" required />
+                                <?php echo '<label class="text-danger">' . $this->session->flashdata("error") . '</label>'; ?>
                                 <span class="input-group-addon">
                                     <span class="icon icon-lg">
                                         <i class="fa fa-lock"></i>

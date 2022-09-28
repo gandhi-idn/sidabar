@@ -145,16 +145,16 @@
 
             <section role="main" class="content-body">
                 <header class="page-header">
-                    <h2>Progres Barang</h2>
+                    <h2>Input Data Barang</h2>
 
                     <div class="right-wrapper pull-right">
                         <ol class="breadcrumbs">
                             <li>
                                 <a href="index.html">
-                                    <i class="fa fa-gear"></i>
+                                    <i class="fa fa-database"></i>
                                 </a>
                             </li>
-                            <li><span>Progres Barang</span></li>
+                            <li><span>Input Data Barang</span></li>
                         </ol>
 
                         <a class="sidebar-right-toggle" data-open="sidebar-right"><i class="fa fa-chevron-left"></i></a>
@@ -162,175 +162,87 @@
                 </header>
                 <div class="row">
                     <div class="text-center">
-                        <h2>Progres Barang</h2>
+                        <h2 class=" text-gray-900 mb-4">Data Barang</h2>
                     </div>
-                    <form method="post" action="<?= base_url('index.php/input/input_progres'); ?>">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <label>Pilih Barang</label>
-                                <select name="id_barang" class="form-control" required>
-                                    <option></option>
-                                    <?php foreach ($barang->result_array() as $row) : ?>
-                                        <option value="<?= $row['id_barang'] ?>"><?= $row['nama_barang'] ?></option>
-                                    <?php endforeach; ?>
-                                </select>
-                                <label>Asal Barang</label>
-                                <select name="id_bo" class="form-control" required>
-                                    <option></option>
-                                    <?php foreach ($bo->result_array() as $row) : ?>
-                                        <option value="<?= $row['id_bo'] ?>"><?= $row['nama_bo'] ?></option>
-                                    <?php endforeach; ?>
-                                </select>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="comment">Keterangan BO:</label>
-                                    <textarea name="keterangan_bo" class="form-control" rows="4" required></textarea>
+                    <div class="col">
+                        <form class="user" method="POST" action="<?= base_url('index.php/input/input_barang'); ?>">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Nomor Inventaris</label>
+                                        <input type="text" class="form-control" placeholder="no inv" name="no_inv" id="inv" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Nama Barang</label>
+                                        <input type="text" class="form-control" placeholder="nama barang" name="nama_barang" id="nama" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Merk Barang</label>
+                                        <input type="text" class="form-control" placeholder="merk barang" name="merk_barang" id="merk" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Harga</label>
+                                        <input type="text" class="form-control" placeholder="harga" name="harga" id="harga" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Spec</label>
+                                        <input type="text" class="form-control" placeholder="spec" name="spec" id="spec" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label">.</label>
+                                        <button type="submit" class="btn btn-primary form-control">
+                                            Simpan
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="comment">Keterangan Logistik:</label>
-                                    <textarea name="keterangan_log" class="form-control" rows="4" required></textarea>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label>Tanggal Masuk:</label>
-                                    <input name="tgl_masuk" data-plugin-datepicker type="text" class="form-control">
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label>Simpan</label>
-                                    <button type="submit" class="btn btn-primary form-control"><span class="glyphicon glyphicon-floppy-saved" aria-hidden="true"></span></button>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                    <hr>
+                        </form>
+                    </div>
+                    <br>
                     <div class="row">
-                        <!-- Nav tabs -->
-                        <ul class="nav nav-tabs" role="tablist" id="myTab">
-                            <li class="active"><a href="#previousIssue" role="tab" data-toggle="tab">Barang Baru masuk</a></li>
-                            <li><a href="#currentIssue" role="tab" data-toggle="tab">Sedang Service</a></li>
-                            <li><a href="#nextIssue" role="tab" data-toggle="tab">Sudah Selesai</a></li>
-                        </ul>
+                        <div class="col">
+                            <section class="panel">
+                                <header class="panel-heading">
 
-                        <!-- Tab panes -->
-                        <div class="tab-content">
-                            <div class="tab-pane active" id="previousIssue">
-                                <br>
-                                <table class="table table-bordered table-striped mb-none">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col">#</th>
-                                            <th scope="col">nama barang</th>
-                                            <th scope="col">merk barang</th>
-                                            <th scope="col">Dari BO</th>
-                                            <th scope="col">Tanggal Masuk Barang</th>
-                                            <th scope="col">Keterangan BO</th>
-                                            <th scope="col">Ketreangan Logistik</th>
-                                            <th scope="col">Tindakan</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php $i = 1; ?>
-                                        <?php foreach ($prog->result_array() as $value) : ?>
+                                </header>
+                                <div class="panel-body">
+                                    <table class="table table-bordered table-striped mb-none" id="datatable-default">
+                                        <thead>
                                             <tr>
-                                                <td class="hidden"><?= $value['id_prog'] ?></td>
-                                                <td><?= $i++ ?></td>
-                                                <td><?= $value['nama_barang'] ?></td>
-                                                <td><?= $value['merk_barang'] ?></td>
-                                                <td><?= $value['nama_bo'] ?></td>
-                                                <td><?= $value['tgl_masuk_barang'] ?></td>
-                                                <td><?= $value['keterangan_bo'] ?></td>
-                                                <td><?= $value['keterangan_log'] ?></td>
-                                                <td>
-                                                    <a href="<?= base_url() ?>index.php/input/update_progres/<?= $value['id_prog'] ?>"><i class="fa fa-wrench fa-2x" aria-hidden="true"></i></a>
-                                                </td>
+                                                <th scope="col">#</th>
+                                                <th scope="col">Nomor inv</th>
+                                                <th scope="col">Nama Barang</th>
+                                                <th scope="col">Merk Barang</th>
+                                                <th scope="col">Harga</th>
+                                                <th scope="col">Spec</th>
+                                                <th scope="col">Tindakan</th>
                                             </tr>
-                                        <?php endforeach; ?>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div class="tab-pane" id="currentIssue">
-                                <br>
-                                <table class="table table-bordered">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col">#</th>
-                                            <th scope="col">nama barang</th>
-                                            <th scope="col">merk barang</th>
-                                            <th scope="col">Dari BO</th>
-                                            <th scope="col">Tanggal Service</th>
-                                            <th scope="col">Keterangan BO</th>
-                                            <th scope="col">Ketreangan Logistik</th>
-                                            <th scope="col">Tindakan</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php $i = 1; ?>
-                                        <?php foreach ($service->result_array() as $value) : ?>
-                                            <tr>
-                                                <td class="hidden"><?= $value['id_prog'] ?></td>
-                                                <td><?= $i++ ?></td>
-                                                <td><?= $value['nama_barang'] ?></td>
-                                                <td><?= $value['merk_barang'] ?></td>
-                                                <td><?= $value['nama_bo'] ?></td>
-                                                <td><?= $value['tgl_service'] ?></td>
-                                                <td><?= $value['keterangan_bo'] ?></td>
-                                                <td><?= $value['keterangan_log'] ?></td>
-                                                <td>
-                                                    <!-- Single button -->
-                                                    <div class="btn-group">
-                                                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-list"></span> <span class="caret"></span>
-                                                        </button>
-                                                        <ul class="dropdown-menu">
-                                                            <li><a href="<?= base_url() ?>index.php/input/update_progres_2/<?= $value['id_prog'] ?>/4" value="4">Selesai Normal</a></li>
-                                                            <li><a href="<?= base_url() ?>index.php/input/update_progres_2/<?= $value['id_prog'] ?>/1" value="1">Kembali ke Logistik</a></li>
-                                                            <li><a href="<?= base_url() ?>index.php/input/update_progres_2/<?= $value['id_prog'] ?>/5" value="5">Rusak Total</a></li>
-                                                        </ul>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                        <?php endforeach; ?>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div class="tab-pane" id="nextIssue">
-                                <br>
-                                <table class="table table-bordered">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col">#</th>
-                                            <th scope="col">nama barang</th>
-                                            <th scope="col">Dari BO</th>
-                                            <th scope="col">Tanggal Masuk</th>
-                                            <th scope="col">Keterangan BO</th>
-                                            <th scope="col">Tanggal Selesai</th>
-                                            <th scope="col">Ketreangan Final</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php $i = 1; ?>
-                                        <?php foreach ($selesai->result_array() as $value) : ?>
-                                            <tr>
-                                                <td class="hidden"><?= $value['id_prog'] ?></td>
-                                                <td><?= $i++ ?></td>
-                                                <td><?= $value['nama_barang'] ?></td>
-                                                <td><?= $value['nama_bo'] ?></td>
-                                                <td><?= $value['tgl_masuk_barang'] ?></td>
-                                                <td><?= $value['keterangan_bo'] ?></td>
-                                                <td><?= $value['tgl_selesai'] ?></td>
-                                                <td><?= $value['keterangan_final'] ?></td>
-                                            </tr>
-                                        <?php endforeach; ?>
-                                    </tbody>
-                                </table>
-                            </div>
+                                        </thead>
+                                        <tbody>
+                                            <?PHP $i = 1; ?>
+                                            <?php foreach ($table->result_array() as $row) : ?>
+                                                <tr class="gradeX">
+                                                    <td class="hidden"><?= $row['id_barang'] ?></td>
+                                                    <td><?= $i++ ?></td>
+                                                    <td id="t_inv"><?= $row['no_inv'] ?></td>
+                                                    <td id="t_nama"><?= $row['nama_barang'] ?></td>
+                                                    <td id="t_merk"><?= $row['merk_barang'] ?></td>
+                                                    <td id="t_harga"><?= $row['harga'] ?></td>
+                                                    <td id="t_spec"><?= $row['spec'] ?></td>
+                                                    <td class="actions-hover actions-fade">
+                                                        <a id="edit" href="#"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                                                        <a href="#"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+                                                    </td>
+                                                </tr>
+                                            <?php endforeach; ?>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </section>
                         </div>
                     </div>
                 </div>

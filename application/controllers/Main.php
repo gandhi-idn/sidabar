@@ -39,6 +39,7 @@ class Main extends CI_Controller
      {
           if ($this->session->userdata('username') != '') {
 
+
                // select table progres
                $this->db->select('*');
                $this->db->from('progres');
@@ -98,13 +99,13 @@ class Main extends CI_Controller
           }
      }
 
-     function dashboard()
+     function input_barang()
      {
 
           if ($this->session->userdata('username') != '') {
 
                $query['table'] = $this->db->get('barang');
-               $this->load->view('dashboard', $query);
+               $this->load->view('input', $query);
           }
      }
 
