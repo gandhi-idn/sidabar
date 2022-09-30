@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 06 Sep 2022 pada 10.25
+-- Waktu pembuatan: 30 Sep 2022 pada 05.08
 -- Versi server: 10.4.24-MariaDB
 -- Versi PHP: 7.4.28
 
@@ -44,7 +44,12 @@ INSERT INTO `barang` (`id_barang`, `no_inv`, `nama_barang`, `merk_barang`, `harg
 (2, 'inv08883', 'PC asus H81', 'asus', '1000000', 'H81'),
 (3, 'inv12361', 'motherboard', 'assrock', '600000', 'assrock H61'),
 (4, 'inv2134213', 'monitor ', 'AOC', '1000000', '21 inch'),
-(5, 'inv08883333ss', 'printer', 'canon', '600000', 'printer warna warni');
+(5, 'inv08883333ss', 'printer', 'canon', '600000', 'printer warna warni'),
+(6, 'inv213421344444', 'monitor ', 'LG', '1300000', '19 inch'),
+(7, 'inv0888322dedwdw', 'CCTV', 'xiaomi', '500000', '13 MP'),
+(8, 'inv08883freff', 'monitor ', 'AOC', '1800000', '21 inch'),
+(9, 'inv08883ooksodkas989as', 'laptop manejer KM30/temanang', 'asus', '7000000', 'i5 gen6, ssd 240, ram 8GB'),
+(10, 'inv088832222', 'monitor ', 'asus', '1000000', '34 inch');
 
 -- --------------------------------------------------------
 
@@ -168,17 +173,22 @@ CREATE TABLE `progres` (
   `tgl_masuk_barang` date NOT NULL,
   `tgl_service` date NOT NULL,
   `tgl_selesai` date NOT NULL,
-  `id_status` int(11) NOT NULL
+  `id_status` int(11) NOT NULL,
+  `keterangan_final` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `progres`
 --
 
-INSERT INTO `progres` (`id_prog`, `id_barang`, `id_bo`, `keterangan_log`, `keterangan_bo`, `tgl_masuk_barang`, `tgl_service`, `tgl_selesai`, `id_status`) VALUES
-(1, 2, 2, 'motherboard konxlet, ganti motherboard baru', 'tidak bisa nyala', '2022-09-06', '0000-00-00', '0000-00-00', 2),
-(2, 4, 3, 'ganti baru', 'layarnya putih', '2022-09-06', '0000-00-00', '0000-00-00', 2),
-(3, 5, 12, 'ganti catridge', 'tidak bisa cetak', '2022-09-05', '0000-00-00', '0000-00-00', 2);
+INSERT INTO `progres` (`id_prog`, `id_barang`, `id_bo`, `keterangan_log`, `keterangan_bo`, `tgl_masuk_barang`, `tgl_service`, `tgl_selesai`, `id_status`, `keterangan_final`) VALUES
+(1, 2, 2, 'motherboard konxlet, ganti motherboard baru', 'tidak bisa nyala', '2022-09-06', '2022-09-08', '2022-09-13', 5, 'rusak total, tidak bisa diganti'),
+(2, 4, 3, 'ganti baru', 'layarnya putih', '2022-09-06', '2022-09-13', '2022-09-13', 4, 'selesai ganti LCD, bagus seperti baru'),
+(3, 5, 12, 'ganti catridge', 'tidak bisa cetak', '2022-09-05', '2022-09-08', '2022-09-14', 1, 'sdfsdf'),
+(4, 3, 12, 'terbakar, ganti motherboard H81', 'kenak sambar petir', '2022-09-13', '2022-09-14', '2022-09-14', 0, 'ooo'),
+(5, 6, 15, 'ganti LCD layar ', 'layar bergaris', '2022-09-16', '2022-09-16', '0000-00-00', 3, ''),
+(6, 7, 16, 'ganti Lensa', 'kamera blur', '2022-09-16', '0000-00-00', '0000-00-00', 2, ''),
+(7, 9, 66, 'ganti SSD', 'ganti SSD jang', '2022-09-28', '2022-09-28', '0000-00-00', 3, '');
 
 -- --------------------------------------------------------
 
@@ -197,7 +207,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `password`) VALUES
-(1, 'admin', 'admin');
+(1, 'ignasius', 'admin');
 
 --
 -- Indexes for dumped tables
@@ -241,7 +251,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT untuk tabel `barang`
 --
 ALTER TABLE `barang`
-  MODIFY `id_barang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_barang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT untuk tabel `bo`
@@ -253,13 +263,13 @@ ALTER TABLE `bo`
 -- AUTO_INCREMENT untuk tabel `detail_status`
 --
 ALTER TABLE `detail_status`
-  MODIFY `id_status` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_status` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT untuk tabel `progres`
 --
 ALTER TABLE `progres`
-  MODIFY `id_prog` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_prog` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT untuk tabel `users`

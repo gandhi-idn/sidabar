@@ -109,6 +109,10 @@ class Main extends CI_Controller
           }
      }
 
+     function get_barang($id)
+     {
+     }
+
      function logout()
      {
           $this->session->unset_userdata('username');

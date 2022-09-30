@@ -170,7 +170,10 @@ class Input extends CI_Controller
         $this->load->view('laporan', $data);
     }
 
-    function edit_barang()
+    function edit_barang($id_barang)
     {
+
+        $query = $this->db->get_where('barang', $id_barang);
+        echo ($query);
     }
 }

@@ -234,7 +234,7 @@
                                                     <td id="t_harga"><?= $row['harga'] ?></td>
                                                     <td id="t_spec"><?= $row['spec'] ?></td>
                                                     <td class="actions-hover actions-fade">
-                                                        <a id="edit" href="#"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                                                        <a id="edit" href="#" value="<?= $row['id_barang'] ?>"><i class="fa fa-pencil" aria-hidden="true"></i></a>
                                                         <a href="#"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
                                                     </td>
                                                 </tr>
@@ -317,6 +317,7 @@
 
     <!-- Examples -->
     <script src="<?php echo base_url(); ?>assets/javascripts/dashboard/examples.dashboard.js"></script>
+    <script src="<?php echo base_url(); ?>assets/js/js.js"></script>
 </body>
 
 </html>
