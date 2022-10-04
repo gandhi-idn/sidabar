@@ -23,6 +23,7 @@ class Input extends CI_Controller
     {
         $input = array(
             'no_inv' => $this->input->post('no_inv'),
+            'kode_alternatif' => $this->input->post('kode'),
             'nama_barang' => $this->input->post('nama_barang'),
             'merk_barang' => $this->input->post('merk_barang'),
             'harga' => $this->input->post('harga'),
@@ -104,14 +105,16 @@ class Input extends CI_Controller
                 '0' => '#',
                 'a' => 'Nama Barang',
                 'b' => 'Nama BO',
-                'c' => 'Kode Alternatif',
-                'd' => 'Keterangan Logistik',
-                'e' => 'Tanggal Masuk',
+                'c' => 'Kode Inventaris',
+                'd' => 'Kode Alternatif',
+                'e' => 'Keterangan Logistik',
+                'f' => 'Tanggal Masuk',
             );
             $data['fields'] = array(
                 'nama_barang',
                 'nama_bo',
                 'no_inv',
+                'kode_alternatif',
                 'keterangan_log',
                 'tgl_masuk_barang'
             );
@@ -123,14 +126,16 @@ class Input extends CI_Controller
                 '0' => '#',
                 'a' => 'Nama Barang',
                 'b' => 'Nama BO',
-                'c' => 'Kode Alternatif',
-                'd' => 'Keterangan BO',
-                'e' => 'Tanggal Service',
+                'c' => 'Kode Inventaris',
+                'd' => 'Kode Alternatif',
+                'e' => 'Keterangan BO',
+                'f' => 'Tanggal Service',
             );
             $data['fields'] = array(
                 'nama_barang',
                 'nama_bo',
                 'no_inv',
+                'kode_alternatif',
                 'keterangan_bo',
                 'tgl_service'
             );
@@ -142,14 +147,16 @@ class Input extends CI_Controller
                 '0' => '#',
                 'a' => 'Nama Barang',
                 'b' => 'Nama BO',
-                'c' => 'Kode Alternatif',
-                'd' => 'Keterangan Final IT',
-                'e' => 'Tanggal Selesai',
+                'c' => 'Kode Inventaris',
+                'd' => 'Kode Alternatif',
+                'e' => 'Keterangan Final IT',
+                'f' => 'Tanggal Selesai',
             );
             $data['fields'] = array(
                 'nama_barang',
                 'nama_bo',
                 'no_inv',
+                'kode_alternatif',
                 'keterangan_final',
                 'tgl_selesai'
             );
@@ -173,7 +180,8 @@ class Input extends CI_Controller
     function edit_barang($id_barang)
     {
 
-        $query = $this->db->get_where('barang', $id_barang);
+        $query = $this->db->get_where('barang', array('id_barang' => $id_barang));
+
         echo ($query);
     }
 }

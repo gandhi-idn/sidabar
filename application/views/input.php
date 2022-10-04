@@ -173,8 +173,8 @@
                                         <input type="text" class="form-control" placeholder="no inv" name="no_inv" id="inv" required>
                                     </div>
                                     <div class="form-group">
-                                        <label>Nama Barang</label>
-                                        <input type="text" class="form-control" placeholder="nama barang" name="nama_barang" id="nama" required>
+                                        <label>Kode Alternatif</label>
+                                        <input type="text" class="form-control" placeholder="Kode Alternatif" name="kode" id="kode" required>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
@@ -183,14 +183,18 @@
                                         <input type="text" class="form-control" placeholder="merk barang" name="merk_barang" id="merk" required>
                                     </div>
                                     <div class="form-group">
-                                        <label>Harga</label>
-                                        <input type="text" class="form-control" placeholder="harga" name="harga" id="harga" required>
+                                        <label>Nama Barang</label>
+                                        <input type="text" class="form-control" placeholder="Nama Barang" name="nama_barang" id="nama" required>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label>Spec</label>
                                         <input type="text" class="form-control" placeholder="spec" name="spec" id="spec" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Harga</label>
+                                        <input type="text" class="form-control" placeholder="harga" name="harga" id="harga" required>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label">.</label>
@@ -225,16 +229,15 @@
                                         <tbody>
                                             <?PHP $i = 1; ?>
                                             <?php foreach ($table->result_array() as $row) : ?>
-                                                <tr class="gradeX">
-                                                    <td class="hidden"><?= $row['id_barang'] ?></td>
+                                                <tr>
                                                     <td><?= $i++ ?></td>
-                                                    <td id="t_inv"><?= $row['no_inv'] ?></td>
-                                                    <td id="t_nama"><?= $row['nama_barang'] ?></td>
-                                                    <td id="t_merk"><?= $row['merk_barang'] ?></td>
-                                                    <td id="t_harga"><?= $row['harga'] ?></td>
-                                                    <td id="t_spec"><?= $row['spec'] ?></td>
+                                                    <td><?= $row['no_inv'] ?></td>
+                                                    <td><?= $row['nama_barang'] ?></td>
+                                                    <td><?= $row['merk_barang'] ?></td>
+                                                    <td><?= $row['harga'] ?></td>
+                                                    <td><?= $row['spec'] ?></td>
                                                     <td class="actions-hover actions-fade">
-                                                        <a id="edit" href="#" value="<?= $row['id_barang'] ?>"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                                                        <a href="javascript:void(0)" onclick="edit('<?= $row['id_barang'] ?>')"><i class="fa fa-pencil" aria-hidden="true"></i></a>
                                                         <a href="#"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
                                                     </td>
                                                 </tr>
@@ -318,6 +321,7 @@
     <!-- Examples -->
     <script src="<?php echo base_url(); ?>assets/javascripts/dashboard/examples.dashboard.js"></script>
     <script src="<?php echo base_url(); ?>assets/js/js.js"></script>
+
 </body>
 
 </html>
