@@ -180,8 +180,9 @@ class Input extends CI_Controller
     function edit_barang($id_barang)
     {
 
-        $query = $this->db->get_where('barang', array('id_barang' => $id_barang));
+        // $id = $this->input->get('id');
+        $data = $this->db->get_where('barang', array('id_barang' => $id_barang))->row();
 
-        echo ($query);
+        echo json_encode($data);
     }
 }

@@ -168,6 +168,7 @@
                         <form class="user" method="POST" action="<?= base_url('index.php/input/input_barang'); ?>">
                             <div class="row">
                                 <div class="col-md-4">
+                                    <input type="hidden" class="form-control" name="id_barang" id="id_barang">
                                     <div class="form-group">
                                         <label>Nomor Inventaris</label>
                                         <input type="text" class="form-control" placeholder="no inv" name="no_inv" id="inv" required>
@@ -237,8 +238,8 @@
                                                     <td><?= $row['harga'] ?></td>
                                                     <td><?= $row['spec'] ?></td>
                                                     <td class="actions-hover actions-fade">
-                                                        <a href="javascript:void(0)" onclick="edit('<?= $row['id_barang'] ?>')"><i class="fa fa-pencil" aria-hidden="true"></i></a>
-                                                        <a href="#"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+                                                        <a href="javascript:void(0)" onclick="edit('<?= $row['id_barang'] ?>')" name="edit"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                                                        <a id="hapus"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
                                                     </td>
                                                 </tr>
                                             <?php endforeach; ?>
@@ -320,7 +321,30 @@
 
     <!-- Examples -->
     <script src="<?php echo base_url(); ?>assets/javascripts/dashboard/examples.dashboard.js"></script>
-    <script src="<?php echo base_url(); ?>assets/js/js.js"></script>
+    <script type="text/javascript">
+        function edit(id_barang) {
+
+            var id = $('[name="edit"]').attr('data');
+            $.ajax({
+                type: "GET",
+                url: "<?php echo site_url('index.php/input/edit_barang'); ?>/" + id_barang,
+                dataType: "JSON",
+
+                success: function(data) {
+                    $.each(data, function(id_barang, nama_barang, no_inv, kode_alternatif, merk_barang, harga, spec) {
+                        $('[name="id_barang"]').val(data.id_barang);
+                        $('[name="no_inv"]').val(data.no_inv);
+                        $('[name="kode"]').val(data.kode_alternatif);
+                        $('[name="nama_barang"]').val(data.nama_barang);
+                        $('[name="merk_barang"]').val(data.merk_barang);
+                        $('[name="harga"]').val(data.harga);
+                        $('[name="spec"]').val(data.spec);
+                    })
+                }
+
+            })
+        }
+    </script>
 
 </body>
 
