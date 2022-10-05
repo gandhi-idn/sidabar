@@ -238,8 +238,8 @@
                                                     <td><?= $row['harga'] ?></td>
                                                     <td><?= $row['spec'] ?></td>
                                                     <td class="actions-hover actions-fade">
-                                                        <a href="javascript:void(0)" onclick="edit('<?= $row['id_barang'] ?>')" name="edit"><i class="fa fa-pencil" aria-hidden="true"></i></a>
-                                                        <a id="hapus"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+                                                        <a class="btn btn-sm btn-warning" href="javascript:void(0)" onclick="edit('<?= $row['id_barang'] ?>')" name="edit"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                                                        <a class="btn btn-sm btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
                                                     </td>
                                                 </tr>
                                             <?php endforeach; ?>
