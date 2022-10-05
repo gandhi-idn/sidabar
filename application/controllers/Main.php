@@ -46,6 +46,7 @@ class Main extends CI_Controller
                $this->db->join('barang', 'progres.id_barang = barang.id_barang', 'inner');
                $this->db->join('bo', 'progres.id_bo = bo.id_bo', 'inner');
                $this->db->join('detail_status', 'progres.id_status = detail_status.id_status', 'left');
+
                $query['table'] = $this->db->get();
 
                $this->load->view('dashboard', $query);
@@ -101,12 +102,9 @@ class Main extends CI_Controller
 
      function input_barang()
      {
+          $query['table'] = $this->db->query('SELECT * FROM BARANG WHERE ID_BARANG NOT IN(SELECT id_barang FROM PROGRES)');
 
-          if ($this->session->userdata('username') != '') {
-
-               $query['table'] = $this->db->get('barang');
-               $this->load->view('input', $query);
-          }
+          $this->load->view('input', $query);
      }
 
      function get_barang($id)

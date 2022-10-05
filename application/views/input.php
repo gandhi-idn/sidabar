@@ -220,6 +220,7 @@
                                             <tr>
                                                 <th scope="col">#</th>
                                                 <th scope="col">Nomor inv</th>
+                                                <th scope="col">Kode Alternatif</th>
                                                 <th scope="col">Nama Barang</th>
                                                 <th scope="col">Merk Barang</th>
                                                 <th scope="col">Harga</th>
@@ -233,13 +234,14 @@
                                                 <tr>
                                                     <td><?= $i++ ?></td>
                                                     <td><?= $row['no_inv'] ?></td>
+                                                    <td><?= $row['kode_alternatif'] ?></td>
                                                     <td><?= $row['nama_barang'] ?></td>
                                                     <td><?= $row['merk_barang'] ?></td>
                                                     <td><?= $row['harga'] ?></td>
                                                     <td><?= $row['spec'] ?></td>
                                                     <td class="actions-hover actions-fade">
                                                         <a class="btn btn-sm btn-warning" href="javascript:void(0)" onclick="edit('<?= $row['id_barang'] ?>')" name="edit"><i class="fa fa-pencil" aria-hidden="true"></i></a>
-                                                        <a class="btn btn-sm btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+                                                        <a class="btn btn-sm btn-danger" href="javascript:void(0)" onclick="hapus('<?= $row['id_barang'] ?>')"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
                                                     </td>
                                                 </tr>
                                             <?php endforeach; ?>
@@ -323,8 +325,6 @@
     <script src="<?php echo base_url(); ?>assets/javascripts/dashboard/examples.dashboard.js"></script>
     <script type="text/javascript">
         function edit(id_barang) {
-
-            var id = $('[name="edit"]').attr('data');
             $.ajax({
                 type: "GET",
                 url: "<?php echo site_url('index.php/input/edit_barang'); ?>/" + id_barang,
@@ -343,6 +343,27 @@
                 }
 
             })
+        }
+
+        function hapus(id_barang) {
+            var del = confirm("Yakin Hapus data barang ini??");
+            if (del == true) {
+                $.ajax({
+                    type: "POST",
+                    url: "<?php echo site_url('index.php/input/hapus_barang'); ?>/" + id_barang,
+                    dataType: "JSON",
+
+                    success: function(data) {
+                        if (data.status) {
+                            alert("Data Barang Terhapus!!!");
+                            location.reload();
+                        } else {
+                            alert("Ada yang salah, cek database Lokal!!");
+                            location.reload();
+                        }
+                    }
+                })
+            }
         }
     </script>
 

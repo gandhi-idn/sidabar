@@ -21,17 +21,35 @@ class Input extends CI_Controller
      */
     public function input_barang()
     {
-        $input = array(
-            'no_inv' => $this->input->post('no_inv'),
-            'kode_alternatif' => $this->input->post('kode'),
-            'nama_barang' => $this->input->post('nama_barang'),
-            'merk_barang' => $this->input->post('merk_barang'),
-            'harga' => $this->input->post('harga'),
-            'spec' => $this->input->post('spec'),
-        );
-        $this->db->insert('barang', $input);
-        redirect('index.php/main/input_barang');
+        $id = $this->input->post('id_barang');
+        if ($id == 0) {
+            $input = array(
+                'no_inv' => $this->input->post('no_inv'),
+                'kode_alternatif' => $this->input->post('kode'),
+                'nama_barang' => $this->input->post('nama_barang'),
+                'merk_barang' => $this->input->post('merk_barang'),
+                'harga' => $this->input->post('harga'),
+                'spec' => $this->input->post('spec'),
+            );
+            $this->db->insert('barang', $input);
+            redirect('index.php/main/input_barang');
+        } else {
+
+            $input = array(
+                'id_barang' => $this->input->post('id_barang'),
+                'no_inv' => $this->input->post('no_inv'),
+                'kode_alternatif' => $this->input->post('kode'),
+                'nama_barang' => $this->input->post('nama_barang'),
+                'merk_barang' => $this->input->post('merk_barang'),
+                'harga' => $this->input->post('harga'),
+                'spec' => $this->input->post('spec'),
+            );
+            $this->db->where('id_barang', $id);
+            $this->db->update('barang', $input);
+            redirect('index.php/main/input_barang');
+        }
     }
+
     public function input_progres()
     {
         $id_status = 2;
@@ -184,5 +202,13 @@ class Input extends CI_Controller
         $data = $this->db->get_where('barang', array('id_barang' => $id_barang))->row();
 
         echo json_encode($data);
+    }
+
+    function hapus_barang($id_barang)
+    {
+        $this->db->where('id_barang', $id_barang);
+        $this->db->delete('barang');
+
+        echo json_encode(array("status" => TRUE));
     }
 }
