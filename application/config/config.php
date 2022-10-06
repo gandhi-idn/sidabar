@@ -23,7 +23,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://localhost/sidabar';
+$config['base_url'] = 'https://1e25-103-144-170-237.ngrok.io/sidabar';
 
 /*
 |--------------------------------------------------------------------------

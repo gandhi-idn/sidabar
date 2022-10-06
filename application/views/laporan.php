@@ -26,6 +26,7 @@
         <div class="row">
             <div class="text-center">
                 <h2><?= $judul; ?></h2>
+                <h4>Dari tanggal <?= $tgl_awal; ?> sampai dengan <?= $tgl_akhir; ?></h4>
             </div>
             <ul class="nav nav-pills">
                 <li role="presentation" class="enabled"><a href="<?= base_url('index.php/main/filter_laporan'); ?>">Kembali ke Filter</a></li>

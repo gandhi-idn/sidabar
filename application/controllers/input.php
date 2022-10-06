@@ -118,7 +118,11 @@ class Input extends CI_Controller
         if ($jenis == 2) {
             $tgl = 'tgl_masuk_barang >=';
             $tgl_a = 'tgl_masuk_barang <=';
-            $data = array('judul' => 'Data Barang Masuk');
+            $data = array(
+                'judul' => 'Data Barang Masuk',
+                'tgl_awal' => $tgl_awal,
+                'tgl_akhir' => $tgl_akhir,
+            );
             $data['column'] = array(
                 '0' => '#',
                 'a' => 'Nama Barang',
@@ -139,7 +143,11 @@ class Input extends CI_Controller
         } elseif ($jenis == 3) {
             $tgl = 'tgl_service >=';
             $tgl_a = 'tgl_service <=';
-            $data = array('judul' => 'Data Barang Service');
+            $data = array(
+                'judul' => 'Data Barang Service',
+                'tgl_awal' => $tgl_awal,
+                'tgl_akhir' => $tgl_akhir,
+            );
             $data['column'] = array(
                 '0' => '#',
                 'a' => 'Nama Barang',
@@ -160,7 +168,11 @@ class Input extends CI_Controller
         } else {
             $tgl = 'tgl_selesai >=';
             $tgl_a = 'tgl_selesai <=';
-            $data = array('judul' => 'Data Barang Keluar/Selesai');
+            $data = array(
+                'judul' => 'Data Barang Keluar/Selesai',
+                'tgl_awal' => $tgl_awal,
+                'tgl_akhir' => $tgl_akhir,
+            );
             $data['column'] = array(
                 '0' => '#',
                 'a' => 'Nama Barang',
@@ -191,7 +203,6 @@ class Input extends CI_Controller
         $this->db->where($tgl_a, $tgl_akhir);
 
         $data['table'] = $this->db->get();
-        // var_dump($query);
         $this->load->view('laporan', $data);
     }
 
