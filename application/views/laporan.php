@@ -29,11 +29,11 @@
             </div>
             <ul class="nav nav-pills">
                 <li role="presentation" class="enabled"><a href="<?= base_url('index.php/main/filter_laporan'); ?>">Kembali ke Filter</a></li>
-                <li role="presentation" class="enabled"><a href="#">Export to Excel</a></li>
+                <li role="presentation" class="enabled"><a id="export" href="#">Export to Excel</a></li>
             </ul>
             <hr>
             <div class="col">
-                <table class="table table-striped">
+                <table id="mytable" class="table table-striped">
                     <thead>
                         <tr>
                             <?php foreach ($column as $row) : ?>
@@ -60,6 +60,12 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/js/table2excel.js"></script>
+    <script type="text/javascript">
+        $('#export').click(function() {
+            $("#mytable").table2excel();
+        });
+    </script>
 </body>
 
 </html>
