@@ -52,17 +52,39 @@ class Input extends CI_Controller
 
     public function input_progres()
     {
-        $id_status = 2;
-        $input = array(
-            'id_barang' => $this->input->post('id_barang'),
-            'id_bo' => $this->input->post('id_bo'),
-            'keterangan_log' => $this->input->post('keterangan_log'),
-            'keterangan_bo' => $this->input->post('keterangan_bo'),
-            'tgl_masuk_barang' => $this->input->post('tgl_masuk'),
-            'id_status' => $id_status,
-        );
-        $this->db->insert('progres', $input);
-        redirect('index.php/main/progres');
+        $id = $this->input->post('id_progres');
+        if ($id == 0) {
+            $id_status = 2;
+            $input = array(
+                'id_barang' => $this->input->post('id_barang'),
+                'id_bo' => $this->input->post('id_bo'),
+                'keterangan_log' => $this->input->post('keterangan_log'),
+                'keterangan_bo' => $this->input->post('keterangan_bo'),
+                'tgl_masuk_barang' => $this->input->post('tgl_masuk'),
+                'id_status' => $id_status,
+            );
+            $this->db->insert('progres', $input);
+            redirect('index.php/main/progres');
+        } else {
+            $input = array(
+                'id_barang' => $this->input->post('id_barang_ed'),
+                'id_bo' => $this->input->post('id_bo'),
+                'keterangan_log' => $this->input->post('keterangan_log'),
+                'keterangan_bo' => $this->input->post('keterangan_bo'),
+                'tgl_masuk_barang' => $this->input->post('tgl_masuk'),
+            );
+            $this->db->where('id_prog', $id);
+            $this->db->update('progres', $input);
+            redirect('index.php/main/progres');
+        }
+    }
+
+    function hapus_prog($id_prog)
+    {
+        $this->db->where('id_prog', $id_prog);
+        $this->db->delete('progres');
+
+        echo json_encode(array("status" => TRUE));
     }
 
     public function update_progres($id)
@@ -78,7 +100,7 @@ class Input extends CI_Controller
         redirect('index.php/main/progres');
     }
 
-    public function update_progres_2($id, $id_status)
+    public function update_progres_2($id)
     {
 
         // select table progres
@@ -87,11 +109,7 @@ class Input extends CI_Controller
         $this->db->where('id_prog', $id);
         $query['progres'] = $this->db->get();
 
-        // select table status
-        $this->db->select('*');
-        $this->db->from('detail_status');
-        $this->db->where('id_status', $id_status);
-        $query['status'] = $this->db->get();
+        $query['status'] = $this->db->get('detail_status');
         $this->load->view('edit_prog', $query);
     }
 

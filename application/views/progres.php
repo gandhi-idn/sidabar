@@ -167,6 +167,8 @@
                     <form method="post" action="<?= base_url('index.php/input/input_progres'); ?>">
                         <div class="row">
                             <div class="col-md-4">
+                                <input type="hidden" name="id_progres" type="text" class="form-control">
+                                <input type="hidden" name="id_barang_ed" type="text" class="form-control">
                                 <label>Pilih Barang</label>
                                 <select name="id_barang" class="form-control" required>
                                     <option></option>
@@ -248,8 +250,10 @@
                                                 <td><?= $value['tgl_masuk_barang'] ?></td>
                                                 <td><?= $value['keterangan_bo'] ?></td>
                                                 <td><?= $value['keterangan_log'] ?></td>
-                                                <td>
-                                                    <a href="<?= base_url() ?>index.php/input/update_progres/<?= $value['id_prog'] ?>"><i class="fa fa-wrench fa-2x" aria-hidden="true"></i></a>
+                                                <td class="actions-hover actions-fade">
+                                                    <a class="btn btn-xs btn-info" href="<?= base_url() ?>index.php/input/update_progres/<?= $value['id_prog'] ?>"><i class="fa fa-wrench" aria-hidden="true"></i></a>
+                                                    <a class="btn btn-xs btn-warning" href="javascript:void(0)" onclick="edit_prog('<?= $value['id_prog'] ?>')"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                                                    <a class="btn btn-xs btn-danger" href="javascript:void(0)" onclick="hapus_prog('<?= $value['id_prog'] ?>')"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
                                                 </td>
                                             </tr>
                                         <?php endforeach; ?>
@@ -283,17 +287,9 @@
                                                 <td><?= $value['tgl_service'] ?></td>
                                                 <td><?= $value['keterangan_bo'] ?></td>
                                                 <td><?= $value['keterangan_log'] ?></td>
-                                                <td>
-                                                    <!-- Single button -->
-                                                    <div class="btn-group">
-                                                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-list"></span> <span class="caret"></span>
-                                                        </button>
-                                                        <ul class="dropdown-menu">
-                                                            <li><a href="<?= base_url() ?>index.php/input/update_progres_2/<?= $value['id_prog'] ?>/4" value="4">Selesai Normal</a></li>
-                                                            <li><a href="<?= base_url() ?>index.php/input/update_progres_2/<?= $value['id_prog'] ?>/1" value="1">Kembali ke Logistik</a></li>
-                                                            <li><a href="<?= base_url() ?>index.php/input/update_progres_2/<?= $value['id_prog'] ?>/5" value="5">Rusak Total</a></li>
-                                                        </ul>
-                                                    </div>
+                                                <td class="actions-hover actions-fade">
+                                                    <a class="btn btn-xs btn-info" href="<?= base_url() ?>index.php/input/update_progres_2/<?= $value['id_prog'] ?>"><i class="fa fa-check" aria-hidden="true"></i></a>
+                                                    <a class="btn btn-xs btn-danger" href="javascript:void(0)" onclick="hapus_prog('<?= $value['id_prog'] ?>')"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
                                                 </td>
                                             </tr>
                                         <?php endforeach; ?>
@@ -312,6 +308,7 @@
                                             <th scope="col">Keterangan BO</th>
                                             <th scope="col">Tanggal Selesai</th>
                                             <th scope="col">Ketreangan Final</th>
+                                            <th scope="col">Tindakan</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -326,6 +323,9 @@
                                                 <td><?= $value['keterangan_bo'] ?></td>
                                                 <td><?= $value['tgl_selesai'] ?></td>
                                                 <td><?= $value['keterangan_final'] ?></td>
+                                                <td class="actions-hover actions-fade">
+                                                    <a class="btn btn-xs btn-danger" href="javascript:void(0)" onclick="hapus_prog('<?= $value['id_prog'] ?>')"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+                                                </td>
                                             </tr>
                                         <?php endforeach; ?>
                                     </tbody>
@@ -405,6 +405,54 @@
 
     <!-- Examples -->
     <script src="<?php echo base_url(); ?>assets/javascripts/dashboard/examples.dashboard.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('[name="id_barang"]').prop("disabled", false);
+        })
+
+        function edit_prog(id_prog) {
+            $.ajax({
+                type: "GET",
+                url: "<?php echo site_url('index.php/main/edit_progres'); ?>/" + id_prog,
+                dataType: "JSON",
+
+                success: function(data) {
+                    $.each(data, function(id_prog, id_barang, id_bo, keterangan_log, keterangan_bo, tgl_masuk_barang, tgl_masuk) {
+                        $('[name="id_progres"]').val(data.id_prog);
+                        $('[name="id_barang_ed"]').val(data.id_barang);
+                        $('[name="id_barang"]').prop("disabled", true);
+                        $('[name="id_bo"]').val(data.id_bo);
+                        $('[name="keterangan_bo"]').val(data.keterangan_bo);
+                        $('[name="keterangan_log"]').val(data.keterangan_log);
+                        $('[name="tgl_masuk"]').val(data.tgl_masuk_barang);
+
+                    })
+                }
+
+            })
+        }
+
+        function hapus_prog(id_prog) {
+            var del = confirm("Yakin Hapus data progres barang ini??");
+            if (del == true) {
+                $.ajax({
+                    type: "POST",
+                    url: "<?php echo site_url('index.php/input/hapus_prog'); ?>/" + id_prog,
+                    dataType: "JSON",
+
+                    success: function(data) {
+                        if (data.status) {
+                            alert("Data Progres Barang Terhapus!!!");
+                            location.reload();
+                        } else {
+                            alert("Ada yang salah, cek database Lokal!!");
+                            location.reload();
+                        }
+                    }
+                })
+            }
+        }
+    </script>
 </body>
 
 </html>

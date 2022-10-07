@@ -70,7 +70,7 @@ class Main extends CI_Controller
                $query['prog'] = $this->db->get();
 
                // select table progres barang servie IT
-               $this->db->select('progres.id_prog, progres.tgl_service, progres.keterangan_log, progres.keterangan_bo, barang.merk_barang, barang.nama_barang, bo.nama_bo, detail_status.status');
+               $this->db->select('*');
                $this->db->from('progres');
                $this->db->join('barang', 'progres.id_barang = barang.id_barang', 'inner');
                $this->db->join('bo', 'progres.id_bo = bo.id_bo', 'inner');
@@ -98,6 +98,19 @@ class Main extends CI_Controller
 
                $this->load->view('progres', $query);
           }
+     }
+
+     function edit_progres($id_prog)
+     {
+          // select table progres barang masuk IT
+          $this->db->select('*');
+          $this->db->from('progres');
+          $this->db->join('barang', 'progres.id_barang = barang.id_barang', 'inner');
+          $this->db->join('bo', 'progres.id_bo = bo.id_bo', 'inner');
+          $this->db->join('detail_status', 'progres.id_status = detail_status.id_status', 'left');
+          $this->db->where('progres.id_prog', $id_prog);
+          $data = $this->db->get()->row();
+          echo json_encode($data);
      }
 
      function input_barang()
