@@ -87,7 +87,7 @@
                     </form>
                 </div>
             </div>
-            <p class="text-center text-muted mt-md mb-md">&copy; Copyright 2022. All rights reserved. Template by <a href="#">IT-KP(anak Magang-Silo)</a>.</p>
+            <p class="text-center text-muted mt-md mb-md">&copy; Copyright 2022. All rights reserved. Programed By <a href="#">IT-KP(anak Magang-Silo)</a>.</p>
         </div>
     </section>
     <!-- end: page -->
